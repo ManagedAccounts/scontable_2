@@ -1,0 +1,12 @@
+
+<p>Buscar por :</p>
+<p>ruc</p>
+<p>Razon Social</p>
+
+<br/>
+{% for cliente in cliente_list %}
+<p> {{ cliente  }} | {{ cliente.get_tcliente_display }} | {{cliente.rod}} | {{cliente.direccion}} | {{cliente.toc}} | {{ cliente.get_estado_display }} </p>
+
+{% endfor%}
+
+

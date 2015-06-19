@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load i18n staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Base</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<!--<link rel="stylesheet" type="text/css" href="css/login.css">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nav_login.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/banner.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/iconos.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/modal.css' %}">
+</head>
+<body>
+	<header>
+		<nav id="navegador">
+            <a href="#" title="homepage" id="logo">
+                <img src="{% static 'img/logo.png'%}" alt="Empresa logo" class="logotipo" />
+            </a>    
+            <div class="menu">
+                <li class="navli"><a href="#openModal" class="ingreso login">Login</a></li>
+                <li class="navli"><a href="sign_up.html" class="ingreso signup">Sign Up</a></li>                   
+            </div>         
+            <div id="openModal" class="modalDialog">
+          	  	<div>
+					<a href="#close" title="Close" class="close">X</a>
+					<h2>Login</h2>
+					<div class="container">
+						<form method="POST" id="form-login" class="small">
+							<dl>   
+				    	    	<input autofocus="true" id="id_username" maxlength="254" name="username" placeholder="Username" type="text">    
+        						<br>
+        						<input id="id_password" name="password" placeholder="Password" type="password">  
+        						<dd><input type="submit" value="Log in" class="login"></dd>
+        						<a href="#" class="forgot">Forgot Password?</a>
+        					</dl>        		
+        				</form>        
+        			</div>
+        	</div>
+        </nav>
+	</header>
+	<section>
+		<div class="banner">						
+			<div class="grid grid-img">
+                <img src="{% static 'img/personas.jpg' %}" class="img-responsive" alt="/">
+			</div>
+			<div class="grid grid-welcome">					
+					<div class="welcome">	 
+						<h1>
+							<a href="#" title="homepage" id="logo1">
+                                <img src="{% static 'img/bienvenida.gif' %}" alt="Empresa logo" class="bienvenida" />
+            				</a>
+            			</h1>          
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi faucibus augue vitae est volutpat eleifend.</p>
+						<a href="#" class="button  info">more info</a>					 
+					</div>							 		  	
+		  	</div>
+		</div>
+    </section>
+    <footer id="footer">
+    	<div class="footer">
+    		<ul class="ul-footer">
+    		    <li><a href="#"><span class="icon-youtube" style="background:#D02929"></span><span class="mls"> Youtube</span></a></li>
+    			<li><a href="#"><span class="icon-github" style="background:#11AAE3"></span><span class="mls"> GitHub</span></a></li>
+    			<li><a href="#"><span class="icon-facebook" style="background:#0050B3"></span><span class="mls"> Facebook</span></a></li>
+    			<li><a href="#"><span class="icon-twitter"></span><span class="mls">Twitter</span></a></li>
+    			<li><a href="#"><span class="icon-google-plus" style="background:#EE5656"></span><span class="mls"> GooglePlus</span></a></li>
+    		</ul>
+    	    	
+    	<div class="copyright">
+    		<p>Copyright ©2015 All rights Reserved | <a href="#" class="final"target="target_blank">Managed Account</a></p>
+    	</div>
+    	</div>
+    </footer>
+</body>
+</html>
