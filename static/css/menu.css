@@ -1,19 +1,19 @@
 @charset"UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Oxygen+Mono);
-/* #cssmenu { */
-/*     padding: 0; */
-/*     margin: 0; */
-/*     border: 0; */
-/* } */
+#cssmenu {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
 #cssmenu ul, #cssmenu li {
     list-style: none;
     margin: 0;
     padding: 0;
 }
-/* #cssmenu ul { */
-/*     position: relative; */
-/*     z-index: 597; */
-/* } */
+#cssmenu ul {
+    position: relative;
+    z-index: 597;
+}
 #cssmenu ul li {
     float: left;
     min-height: 1px;
@@ -60,7 +60,10 @@
     text-decoration: none;
 }
 #cssmenu {
-    background: #03A9F4;
+    /* background: #03A9F4; */
+    /* background:#B2EBF2; */
+    background:#009688;
+    /* background:#fff; */
     border-bottom: 4px solid #03A9F4;
     font-family:arial,'Oxygen Mono', Tahoma, Arial, sans-serif;
     font-size: 12px;
@@ -74,7 +77,8 @@
     clear: both;
 }
 #cssmenu a {
-    background: #B2EBF2; /*#333*/
+    background: #009688;
+    /* background: #B2EBF2; /*#333*/ */
     color: #00BCD4;
     padding: 0 20px;
     font-size: 15px;
@@ -89,8 +93,10 @@
     min-width: 190px;
 }
 #cssmenu ul ul a {
-    background: #B2EBF2;
-    color: #00BCD4;
+    /* background: #B2EBF2; */
+    background: #009688;
+    /* color: #00BCD4; */
+    color:#fff;
     border: 1px solid #BCBCBC;
     border-top: 0 none;
     line-height: 150%;
@@ -104,6 +110,7 @@
 }
 #cssmenu > ul > li > a {
     line-height: 48px;
+    color:#fff;
 }
 #cssmenu ul ul li:first-child > a {
     border-top: 1px solid #00B0FF;

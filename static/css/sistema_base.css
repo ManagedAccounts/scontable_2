@@ -4,7 +4,9 @@ body{
     background: #fff;
     font-family: arial;
 }
-
+#menu_estatico{
+    background:#E1F5FE;
+}
 caption{
     background: #18FFFF;
     font-weight: bold;
@@ -16,7 +18,7 @@ caption:first-child{
 }
 section .cuerpo{
     position: relative;
-    margin-top: -26px;
+    /* margin-top: -26px; */
     padding: 40px 28px;
     background: #B2EBF2;
 
@@ -75,9 +77,9 @@ section .cuerpo .sub_menu details a:hover{
     cursor: pointer;
 }
 .nav_principal{
-    position:relative;
-    display:inline-block;
-    margin-left: 10px;
+    /* position:relative; */
+    /* display:inline-block; */
+    /* margin-left: 10px; */
 }
 /*div ul li{
     position:relative;
@@ -87,8 +89,8 @@ section .cuerpo .sub_menu details a:hover{
 
 
 nav #cssmenu{
-    position: relative;
-    left:10%;
+    /* position: relative; */
+    /* left:10%; */
 }
 img{
     border-radius:50%;
