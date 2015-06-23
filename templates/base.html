@@ -26,8 +26,10 @@
 					<a href="#close" title="Close" class="close">X</a>
 					<h2>Login</h2>
 					<div class="container">
-						<form action="." method="POST" id="form-login" class="small">{% csrf_token %}
-							<dl>   
+						<form action="." method="POST" id="form-login" class="small" role = "form">{% csrf_token %}
+                            <dl>                                      
+                                {{ form.username }}
+                                {{ form.password }}
 				    	    	<input autofocus="true" id="id_username" maxlength="254" name="username" placeholder="Username" type="text">    
         						<br>
         						<input id="id_password" name="password" placeholder="Password" type="password">  
