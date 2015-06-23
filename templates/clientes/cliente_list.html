@@ -1,12 +1,113 @@
+<!DOCTYPE html>
+{% load i18n staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Clientes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="{% static 'css/sistema_base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tabla.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cliente_list.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/icomoon.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="nav_principal name">
+            <h1>Managed Account</h1>
+        </div>
+        <div class="nav_principal navegador"  id="cssmenu">   
+            <ul>
+                <li class="active"><a href="#">Home</a></li>                
+                <li class='has-sub '><a href="#">Sistema</a>
+                    <ul>
+                        <li class='has-sub '><a href='#'>Product 1</a>
+                            <ul>
+                                <li><a href='#'>Sub Item</a></li>
+                                <li><a href='#'>Sub Item</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Caja</a></li>
+                        <li><a href="#">Proveedores</a></li>
+                      
+                    </ul>
+                </li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Help</a></li>
+                <li class="avatar"><img src="{% static 'img/img/megan.jpg' %}" height="45.375" width="62.5"></li>
+                <li class="user"><a href="#">User</a></li>
+            </ul>
+        </div>
+        <div class="nav_principal" id="white">
+            <form method="get" action="/search" id="search">
+                <input name="q" type="text" size="40" placeholder="Search RUC" />
+            </form>
+        </div>
+    </nav>
+    <section>
+        <article class="cuerpo">
+            <div class="facilitador">
+                <div class="segundo"> 
+                    <label><b>Buscar por:</b>
+                        <select class="opciones" >
+                            <option>RUC</option>
+                            <option>Ninguno</option>
+                            <option>Razon Social</option>
+                        </select>
+                    </label> 
 
-<p>Buscar por :</p>
-<p>ruc</p>
-<p>Razon Social</p>
-
-<br/>
-{% for cliente in cliente_list %}
-<p> {{ cliente  }} | {{ cliente.get_tcliente_display }} | {{cliente.rod}} | {{cliente.direccion}} | {{cliente.toc}} | {{ cliente.get_estado_display }} </p>
-
-{% endfor%}
-
+                    <input class="buscar" type="text" placeholder="Estas buscando por ">
+                    <a href="#" class="busco">Buscar</a>
+                </div>
+            </div>
+            <div class="tabla">
+                <table class="zebra">
+                    <caption class="registro"><em>Registro de Clientes</em></caption>
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Razon Social</th>
+                            <th>Tipo de Cliente</th>
+                            <th>Tipo de Documento</th>
+                            <th>Dirección</th> 
+                            <th>Teléfono/Celular</th> 
+                            <th>Estado</th> 
+                            <th>Editar</th> 
+                            <th>Eliminar</th> 
+                        </tr> 
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>                                
+                        </tr>
+                    </tfoot>
+                    {% for cliente in cliente_list %}
+                    <tr>
+                        <td>{{ cliente.id  }}</td>
+                        <td>{{ cliente  }}</td> 
+                        <td>{{ cliente.get_tcliente_display }}</td> 
+                        <td>{{cliente.rod}}</td>
+                        <td>{{cliente.direccion}} </td>
+                        <td>{{cliente.toc}}</td>
+                        <td>{{ cliente.get_estado_display }}</td>
+                        <td><a href="#" class="editar"><img src="{% static 'img/img/editar.png' %}" alt=""width="30px" height="30px"></a></td> <!--<a href="#" class="editar"><span class="icon-editar"></span></a>-->
+                        <td><a href="#" class="eliminar"><img src="{% static 'img/img/remove.png' %}" alt="" width="30px" height="30px"></a></td> <!--<a href="#" class="eliminar"><span class="icon-papelera"></span></a>-->
+                    </tr>
+                    {% endfor%}
+                </table>                
+                <a href="#" class="agregar"><span class="icon-agregar-archivo"></span> Agregar</a>
+            </div>    
+        </article>
+    </section>    
+</body>
+</html>
 

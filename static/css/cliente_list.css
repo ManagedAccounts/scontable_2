@@ -1,0 +1,80 @@
+section .cuerpo .tabla{
+    left:16%;
+}
+label{
+    color:#03A9F4;
+    font-size:20px;
+}
+section .cuerpo div .opciones{
+    background:#18FFFF;
+    padding:7px;
+    outline:none;
+    margin: 0;
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+    border-radius:7px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+    font-size:15px;
+}
+section .cuerpo .facilitador .segundo .opciones option:hover{
+    color:#888
+}
+section .cuerpo div .opciones:hover{
+    color:#888;
+    font-size:16px;
+}
+/* section .cuerpo div .opciones:focus{ */
+/*     background:#fff; */
+/* } */
+section .cuerpo .facilitador{
+    position:relative;
+    bottom:20px;
+}
+section .cuerpo .facilitador .segundo{
+    padding:10px;
+    background:#fff;
+    left:12%;
+    border-radius:12px;
+}
+label{
+    margin-right:7%;
+}
+.buscar{
+    float:right;
+    padding:8px 10px;
+    border-radius:12px;
+    font-size:15px;
+    outline:none;
+    border: 1px solid #18ffff;
+    width:230px;
+}
+.buscar:focus{
+    width:270px;
+    border:1px solid #03a0f4;
+    -webkit-transition: 0.4s;
+}
+.busco{
+    float:right;
+    margin: 0 10px;
+    background: #00BCD4;
+    text-decoration:none;
+    font-size:18px;
+    color: #fff;
+    border: none;
+    border-radius:12px;
+    padding:8px 10px;
+}
+.busco:hover{
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#18ffff), to(#0f0f09));
+    background-image:         linear-gradient(top, #18ffff, #eee);
+}

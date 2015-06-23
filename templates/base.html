@@ -21,12 +21,12 @@
                 <li class="navli"><a href="#openModal" class="ingreso login">Login</a></li>
                 <li class="navli"><a href="sign_up.html" class="ingreso signup">Sign Up</a></li>                   
             </div>         
-            <div id="openModal" class="modalDialog">
+            <div id="openModal" class="modalDialog"> {% csrf_token %}
           	  	<div>
 					<a href="#close" title="Close" class="close">X</a>
 					<h2>Login</h2>
 					<div class="container">
-						<form method="POST" id="form-login" class="small">
+						<form action="." method="POST" id="form-login" class="small">{% csrf_token %}
 							<dl>   
 				    	    	<input autofocus="true" id="id_username" maxlength="254" name="username" placeholder="Username" type="text">    
         						<br>
