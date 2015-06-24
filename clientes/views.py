@@ -2,9 +2,11 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 from clientes.models import Cliente
 
+from accounts.views import LoginRequiredMixin
+
 # Create your views here.
 
-class ClienteList(ListView):
+class ClienteList(LoginRequiredMixin, ListView):
     model = Cliente
 
 """
