@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="css/sistema_base.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/tabla.css">
+    <link rel="stylesheet" type="text/css" href="css/icomoon.css">
+    <link rel="stylesheet" type="text/css" href="css/compra.css">
+</head>
+<body>        
+    <nav>
+        <div class="nav_principal name">
+            <h1>Managed Account</h1>
+        </div>
+        <div class="nav_principal navegador"  id="cssmenu">   
+            <ul>
+                <li class="active"><a href="#">Home</a></li>                
+                <li class='has-sub '><a href="#">Sistema</a>
+                    <ul>
+                        <li class='has-sub '><a href='#'>Product 1</a>
+                            <ul>
+                                <li><a href='#'>Sub Item</a></li>
+                                <li><a href='#'>Sub Item</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Caja</a></li>
+                        <li><a href="#">Proveedores</a></li>
+                      
+                    </ul>
+                </li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Help</a></li>
+                <li class="avatar"><img src="img/megan.jpg" height="45.375" width="62.5"></li>
+                <li class="user"><a href="#">User</a></li>
+            </ul>
+        </div>
+        <div class="nav_principal" id="white">
+            <form method="get" action="/search" id="search">
+                <input name="q" type="text" size="40" placeholder="Search..." />
+            </form>
+        </div>
+    </nav>
+    <section>
+        <article class="cuerpo">
+            <div class="sub_menu">
+                <h2><a href="#">Comprar</a></h2>
+                <h2><a href="#">Vender</a></h2>
+                <details>
+                    <summary><b>Registros</b></summary>
+                    <a href="#"><i>Compras</i></a><br>
+                    <a href="#"><i>Ventas</i></a><br>
+                    <a href="#"><i>Libro Diario</i></a>
+                </details>
+                <h2><a href="clientes.html">R. Clientes</a></h2>
+                <h2><a href="proveedores.html">R. Proveedor</a></h2>
+                <h2><a href="articulos.html">R. Articulos</a></h2>
+            </div>
+            <div class="compra">
+                <div class="compra_cabeza">                
+                    <h2><i>Managed Account</i></h2>            
+                    <form action="sistema_base_submit"method="post"  accept-charset="utf-8" enctype="multipart/form-data"><!--{% csrf_token %-->
+                        <fieldset>
+                            <legend>Formulario de Compra</legend>                            
+                            <div class="control-group">
+                                <label>N° Orden :</label>
+                                <input type="text" name="" value="" placeholder="">                                
+                            </div>
+                            <div class="control-group">
+                                <label>Proveedor :</label>
+                                <input type="text" name="" value="" placeholder="">                                
+                            </div>
+                            <div class="control-group">
+                                <label>Tipo de Producto :</label>
+                                <select class="tipo_producto">
+                                    <option value="">Mercadería</option>                            
+                                    <option value="">Inmueble, Maquinaria y Equipo</option>
+                                    <option value="">Intangible</option>
+                                </select>                                
+                            </div>
+                            <div class="control-group">
+                                <label>Tipo de Pago :</label>
+                                <input type="text" name="" value="" placeholder="">                                
+                            </div>
+                            <div class="control-group">
+                                <label>Moneda :</label>
+                                <select class="">
+                                    <option value="Soles">S/. </option>
+                                    <option value="Dólares">$/. </option>
+                                    <option value="Euros">€/. </option>
+                                    <option value="Yenes">¥/. </option>
+                                </select>                                
+                            </div>
+                            <div class="control-group">
+                                <label>Fecha :</label>
+                                <input type="datetime" name="" value="" placeholder="">                        
+                            </div>
+                        </fieldset>
+              
+               
+                        
+                    </form>           
+                </div>
+            </div>
+            
+        </article>
+        
+    </section>
+    
+</body>
+</html>

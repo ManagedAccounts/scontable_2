@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load i18n staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css'%}">
+</head>
+<body>
+
+    <form method="post"class="login" role="form">{% csrf_token %}
+        {{ form.username }}<br/> 
+        <br/>
+        {{ form.password }}<br/>
+        <br/>
+        <input type="submit" value="Login"/>
+    </form>
+  
+    
+</body>
+</html>
