@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.conf import settings
 
 
-from accounts.views import ControlPanelView, LoginView, LogoutView
+from accounts.views import ControlPanelView, LoginView, LogoutView, CreateUserView
 
 urlpatterns = [
     url(r'^clientes/', include('clientes.urls', namespace = "clientes")),
@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^$', ControlPanelView.as_view(), name='inicio' ),
     url(r'^login/$',LoginView.as_view(), name='login'),
     url(r'^logout/$',LogoutView.as_view(), name='logout'),
+    url(r'^signup/$',CreateUserView.as_view(), name='signup'),
 ]
 
 
