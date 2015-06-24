@@ -1,169 +1,192 @@
-
-body {
-  margin: 0;
-  font-family: "Helvetica Neue",HelveticaNeue,TeXGyreHeros,FreeSans,"Nimbus Sans L","Liberation Sans",Arimo,Helvetica,Arial,sans-serif;
-  font-size: 14px;
-  line-height: 1.7em;
-  color: #333;
-  background-image: url('../img/alianza.jpg');
-  background-size: 1400px;
+body{
+    margin:0;
+    padding:0;
+    background:#fff;
+    outline:none;
 }
-
-#logo{
-  margin-left: 28%;
-}
-
-a{
-  color: #1AEF9C;
-  text-decoration: none;
-  font-size: 16px;
-}
-a:hover {
-  /*text-decoration: underline;*/
-  cursor: auto;
-}
-
-.base{
-  margin: 100px;
-  margin-left: 480px;
-  width: 400px;
-  background-color:rgba(66,66,66,0.6);
-  border-radius: 20px;
+form.login{
+    left:45%;
+    padding:12px 10px;
+    background:#cdcdcd;
 
 }
-.registro{
-  background: #0EE1D5;
-  padding: 24px;
-  border-radius: 10px;
+form.login input[type="text"],input[type="password"]{
+    border:1px solid #18ffff;
+    border-radius:12px;
+    padding:7px 8px;
+    bottom:12px;
 }
-input[type="submit"].login {
-  background: #68a4c4;
-}
-input[type="submit"].registrarse{
-  background: #1188E3;
-}
-
-div{
-  position: relative;
-  display: inline-block;
+form.login input[type="text"]:focus,input[type="password"]:focus{
+    border:1px solid #03a0f4;
+    outline:none;
+    -webkit-transition:0.5s;
 }
 
-.container {
-  top: 10px;
-  margin-right: auto;
-  margin-left: auto;
-  margin: 40px;
-  z-index:5;
-}
-.container{
-  position: relative;
-}
+/* body { */
+/*   margin: 0; */
+/*   font-family: "Helvetica Neue",HelveticaNeue,TeXGyreHeros,FreeSans,"Nimbus Sans L","Liberation Sans",Arimo,Helvetica,Arial,sans-serif; */
+/*   font-size: 14px; */
+/*   line-height: 1.7em; */
+/*   color: #333; */
+/*   background-image: url('../img/alianza.jpg'); */
+/*   background-size: 1400px; */
+/* } */
 
-form dl {
-  margin: 0;
-}
-dl {
-  display: block;
-  -webkit-margin-before: 1em;
-  -webkit-margin-after: 1em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-}
+/* #logo{ */
+/*   margin-left: 28%; */
+/* } */
+
+/* a{ */
+/*   color: #1AEF9C; */
+/*   text-decoration: none; */
+/*   font-size: 16px; */
+/* } */
+/* a:hover { */
+/*   /*text-decoration: underline;*/ 
+/*   cursor: auto; */
+/* } */
+
+/* .base{ */
+/*   margin: 100px; */
+/*   margin-left: 480px; */
+/*   width: 400px; */
+/*   background-color:rgba(66,66,66,0.6); */
+/*   border-radius: 20px; */
+
+/* } */
+/* .registro{ */
+/*   background: #0EE1D5; */
+/*   padding: 24px; */
+/*   border-radius: 10px; */
+/* } */
+/* input[type="submit"].login { */
+/*   background: #68a4c4; */
+/* } */
+/* input[type="submit"].registrarse{ */
+/*   background: #1188E3; */
+/* } */
+
+/* div{ */
+/*   position: relative; */
+/*   display: inline-block; */
+/* } */
+
+/* .container { */
+/*   top: 10px; */
+/*   margin-right: auto; */
+/*   margin-left: auto; */
+/*   margin: 40px; */
+/*   z-index:5; */
+/* } */
+/* .container{ */
+/*   position: relative; */
+/* } */
+
+/* form dl { */
+/*   margin: 0; */
+/* } */
+/* dl { */
+/*   display: block; */
+/*   -webkit-margin-before: 1em; */
+/*   -webkit-margin-after: 1em; */
+/*   -webkit-margin-start: 0px; */
+/*   -webkit-margin-end: 0px; */
+/* } */
 
 
-#form-login input[type="text"], #form-login input[type="password"], #form-login input[type="email"]{
-  width: 250px;
-  margin-bottom: 20px;
-}
+/* #form-login input[type="text"], #form-login input[type="password"], #form-login input[type="email"]{ */
+/*   width: 250px; */
+/*   margin-bottom: 20px; */
+/* } */
 
-input[type="text"], input[type="password"], input[type="email"]{
-  outline: none;
-  width: 530px;
-  padding: 0 14px;
-  line-height: 32px;
-  height: 32px;
-  font-size: 14px;
-  font-weight: 400;
-  color: #394d54;
-  line-height: 20px;
-  border: 1px solid #dbdde0;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
-input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus{
-  border: 1px solid #0869EC;
-}
-textarea, input[type="text"], input[type="password"], input[type="email"]{
-  background-color: #fff;
-  -webkit-transition: border linear .2s,box-shadow linear .2s;
-  -moz-transition: border linear .2s,box-shadow linear .2s;
-  -o-transition: border linear .2s,box-shadow linear .2s;
-  transition: border linear .2s,box-shadow linear .2s;
-}
+/* input[type="text"], input[type="password"], input[type="email"]{ */
+/*   outline: none; */
+/*   width: 530px; */
+/*   padding: 0 14px; */
+/*   line-height: 32px; */
+/*   height: 32px; */
+/*   font-size: 14px; */
+/*   font-weight: 400; */
+/*   color: #394d54; */
+/*   line-height: 20px; */
+/*   border: 1px solid #dbdde0; */
+/*   -webkit-border-radius: 4px; */
+/*   -moz-border-radius: 4px; */
+/*   border-radius: 4px; */
+/*   -webkit-border-radius: 5px; */
+/*   -moz-border-radius: 5px; */
+/*   border-radius: 5px; */
+/* } */
+/* input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus{ */
+/*   border: 1px solid #0869EC; */
+/* } */
+/* textarea, input[type="text"], input[type="password"], input[type="email"]{ */
+/*   background-color: #fff; */
+/*   -webkit-transition: border linear .2s,box-shadow linear .2s; */
+/*   -moz-transition: border linear .2s,box-shadow linear .2s; */
+/*   -o-transition: border linear .2s,box-shadow linear .2s; */
+/*   transition: border linear .2s,box-shadow linear .2s; */
+/* } */
 
-select, textarea, input[type="text"], input[type="password"], input[type="email"]{
-  display: inline-block;
-  height: 1.7em;
-  padding: 4px 6px;
-  margin-bottom: .85em;
-  font-size: 14px;
-  line-height: 1.7em;
-  color: #000;
-  vertical-align: middle;
-}
+/* select, textarea, input[type="text"], input[type="password"], input[type="email"]{ */
+/*   display: inline-block; */
+/*   height: 1.7em; */
+/*   padding: 4px 6px; */
+/*   margin-bottom: .85em; */
+/*   font-size: 14px; */
+/*   line-height: 1.7em; */
+/*   color: #000; */
+/*   vertical-align: middle; */
+/* } */
 
 
-input[type="submit"] {
-  width: 270px;
-  margin-bottom: 10px;
-  margin-left: -42px;
-}
+/* input[type="submit"] { */
+/*   width: 270px; */
+/*   margin-bottom: 10px; */
+/*   margin-left: -42px; */
+/* } */
 
-input[type="submit"] {
-  line-height: 20px;
-  border: none;
-  padding: 6px 15px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: 400;
-  color: #fff;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.16);
-}
+/* input[type="submit"] { */
+/*   line-height: 20px; */
+/*   border: none; */
+/*   padding: 6px 15px; */
+/*   -webkit-border-radius: 4px; */
+/*   -moz-border-radius: 4px; */
+/*   border-radius: 4px; */
+/*   -webkit-border-radius: 5px; */
+/*   -moz-border-radius: 5px; */
+/*   border-radius: 5px; */
+/*   font-size: 14px; */
+/*   font-weight: 400; */
+/*   color: #fff; */
+/*   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.16); */
+/* } */
 
-input[type="submit"]{
-  cursor: pointer;
-}
-input[type="submit"] {
-  -webkit-appearance: button;
-  cursor: pointer;
-}
+/* input[type="submit"]{ */
+/*   cursor: pointer; */
+/* } */
+/* input[type="submit"] { */
+/*   -webkit-appearance: button; */
+/*   cursor: pointer; */
+/* } */
 
-#form-login .register{
-    background: #07a6d1;
-    border: 1px solid #6dd0e7;
-}
+/* #form-login .register{ */
+/*     background: #07a6d1; */
+/*     border: 1px solid #6dd0e7; */
+/* } */
 
-.register::-webkit-input-placeholder{
-   color: #6dd0e7;
-}
+/* .register::-webkit-input-placeholder{ */
+/*    color: #6dd0e7; */
+/* } */
 
-.register:-moz-placeholder { /* Firefox 18- */
-   color: #6dd0e7;  
-}
+/* .register:-moz-placeholder { /1* Firefox 18- *1/ */
+/*    color: #6dd0e7; */  
+/* } */
 
-.register::-moz-placeholder {  /* Firefox 19+ */
-   color: #6dd0e7;  
-}
+/* .register::-moz-placeholder {  /1* Firefox 19+ *1/ */
+/*    color: #6dd0e7; */  
+/* } */
 
-.register:-ms-input-placeholder {  
-   color: #6dd0e7;  
-}
+/* .register:-ms-input-placeholder { */  
+/*    color: #6dd0e7; */  
+/* } */

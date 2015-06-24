@@ -17,14 +17,22 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 
+
+from accounts.views import ControlPanelView, LoginView, LogoutView
+
 urlpatterns = [
     url(r'^clientes/', include('clientes.urls', namespace = "clientes")),
-    url(r'^$', include('home.urls', namespace = "clientes")),
+    #url(r'^$', include('accounts.urls', namespace = "accounts")),
     url(r'^factura/', include('ventas.urls', namespace = "ventas")),
     url(r'^proveedores/', include('proveedores.urls', namespace = "proveedores")),
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT,}),
+
+
+    url(r'^$', ControlPanelView.as_view(), name='inicio' ),
+    url(r'^login/$',LoginView.as_view(), name='login'),
+    url(r'^logout/$',LogoutView.as_view(), name='logout'),
 ]
 
 
