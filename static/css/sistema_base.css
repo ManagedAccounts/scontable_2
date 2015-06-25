@@ -16,7 +16,7 @@ caption:first-child{
 }
 section .cuerpo{
     position: relative;
-    margin-top: -26px;
+    /* margin-top: -26px; */
     padding: 40px 28px;
     background: #B2EBF2;
 
@@ -88,7 +88,7 @@ section .cuerpo .sub_menu details a:hover{
 
 nav #cssmenu{
     position: relative;
-    left:10%;
+    /* left:10%; */
 }
 img{
     border-radius:50%;

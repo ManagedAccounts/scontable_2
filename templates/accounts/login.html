@@ -5,19 +5,47 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/icomoon.css'%}">
 </head>
 <body>
-
-    <form method="post"class="login" role="form">{% csrf_token %}
-        {{ form.username }}<br/> 
-        <br/>
-        {{ form.password }}<br/>
-        <br/>
-        <input type="submit" value="Login"/>
-    </form>
-    <br/>
-    <a href="{% url 'signup' %}">SingUp</a>
-  
-    
+    <header class="header_login">
+        <div class="nav_login">
+            <div>
+                <li><span class="titulo">M</span><i>anaged</i> <span
+                        class="titulo">A</span><i>ccount</i>
+                </li>
+            </div>
+            <div class="div_ayuda">
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="http://www.eltiempo.com/tecnosfera/novedades-tecnologia">Ultimas Novedades</a></li>
+            </div>   
+            <div class="div_signup">
+                <li><a href="{% url 'signup' %}"class="signup" >Sign Up</a></li>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div id="login">
+            <form method="post"class="login" role="form">{% csrf_token %}
+                <div class="control-login">
+                    <label><span class="icon-usuario"></span>:</label>
+                    {{ form.username }} 
+                </div>
+                <div class="control-login">
+                    <label><span class="icon-cerrado"></span>:</label>                        {{ form.password }}
+                </div>
+                <div class="control-login">                    
+                    <input type="submit" value="Log in"/>
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="footer_login">
+        </div>
+        <div class="footer_login">
+        </div>
+    </footer>
 </body>
 </html>
