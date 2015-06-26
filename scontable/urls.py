@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^clientes/', include('clientes.urls', namespace = "clientes")),
     url(r'^compras/', include('compras.urls', namespace = "compras")),
     url(r'^factura/', include('ventas.urls', namespace = "ventas")),
+    url(r'^productos/', include('productos.urls', namespace = "productos")),
     url(r'^proveedores/', include('proveedores.urls', namespace = "proveedores")),
     url(r'^admin/', include(admin.site.urls)),
 

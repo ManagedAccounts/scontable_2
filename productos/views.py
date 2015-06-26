@@ -1,3 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.views.generic.edit import CreateView
+from productos.models import Producto
+from productos.forms import ProductoForm
 
 # Create your views here.
+
+class ProductoCreate(CreateView):
+    model = Producto
+    form_class = ProductoForm
+    def dispatch(self, *args, **kwargs):
+        return super(ProductoCreate, self).dispatch(*args, **kwargs)
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.save()
+        return redirect(self.object)
