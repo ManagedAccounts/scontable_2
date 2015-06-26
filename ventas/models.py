@@ -32,8 +32,8 @@ tabla_10=(
 class Comprobante(models.Model):
     cliente=models.ForeignKey(Cliente)
     tabla_10=models.CharField(max_length=2, choices=tabla_10, default=01)
-    num_factura=models.IntegerField()
-    num_boleta=models.IntegerField()
+    serie=models.IntegerField()
+    numero=models.IntegerField()
     fecha=models.DateField()
     igv=models.FloatField(default=0.00)
     total=models.FloatField(default=0.00)
