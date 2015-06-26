@@ -6,6 +6,8 @@
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/icomoon.css'%}">
+    {% block extracss %}
+    {% endblock %}
 </head>
 <body>
     <header class="header_login">
@@ -21,25 +23,32 @@
                 <li><a href="http://www.eltiempo.com/tecnosfera/novedades-tecnologia">Ultimas Novedades</a></li>
             </div>   
             <div class="div_signup">
+                {% block login %}
                 <li><a href="{% url 'signup' %}"class="signup" >Sign Up</a></li>
+                {% endblock %}
             </div>
         </div>
     </header>
     <section>
+        {% block signup %}
         <div id="login">
             <form method="post"class="login" role="form">{% csrf_token %}
                 <div class="control-login">
-                    <label><span class="icon-usuario"></span>:</label>
-                    {{ form.username }} 
+                <label><img src="{% static 'img/usuario.png' %}">:</label>
+                <input id="id_username" autofocus  placeholder="Usuario"  maxlength="30" name="username" type="text" />
+                    <!-- {{ form.username }} --> 
                 </div>
                 <div class="control-login">
-                    <label><span class="icon-cerrado"></span>:</label>                        {{ form.password }}
+                <label><img src="{% static 'img/clave.png' %}">:</label>
+                <input id="id_password" placeholder="Contraseña" name="password" type="password" />
+                <!-- {{ form.password }} -->
                 </div>
                 <div class="control-login">                    
                     <input type="submit" value="Log in"/>
                 </div>
             </form>
         </div>
+        {% endblock %}
     </section>
     <footer>
         <div class="footer_login">

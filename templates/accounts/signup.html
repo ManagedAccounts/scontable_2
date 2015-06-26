@@ -1,5 +1,43 @@
-<form method = "post">{% csrf_token %}
-    {{form}}
-    <br/>
-    <input type="SUBMIT" value="Resgitrarme"/>
-</form>
+
+{% extends 'accounts/login.html' %}
+
+{% load i18n staticfiles %}
+{% block extracss %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css'%}">
+{% endblock %}
+
+{% block login %}
+<li><a href="{% url 'login' %}"class="signup" >Log in</a></li>
+{% endblock %}
+
+{% block signup %}
+<div id="signup">
+    <form method = "post" accept-charset="utf-8" enctype="multipart/form-data">{% csrf_token %}
+        <fieldset>
+            <legend>Registro de Usuario</legend>
+            <div class="control-signup">
+                <label><img src="{% static 'img/usuario.png' %}"></label>
+                <input id="id_username" autofocus  placeholder="Nombre de Usuario"  maxlength="30" name="username" type="text" />
+                <!-- {{form.username}} -->
+            </div>
+            <div class="control-signup">
+                <label><img src="{% static 'img/clave.png' %}"></label>
+                <input id="id_password" placeholder="Contraseña" name="password" type="password" />
+                <!-- {{form.password}} -->
+            </div>
+            <div class="control-signup">
+                <label><img src="{% static 'img/confirmar.png' %}"></label>
+                <input id="id_password2" placeholder="Confirmar Contraseña" name="password2" type="password" />
+                <!-- {{form.password2}} -->
+            </div>
+            <div class="control-signup">
+                <label><img src="{% static 'img/email.png' %}"></label>
+                <input id="id_email" placeholder="E-mail" maxlength="254" name="email" type="email" />
+                <!-- {{form.email}} -->
+            </div>
+            <div class="control-signup">
+                <input type="SUBMIT" id="register_signup" value="Resgitrarme"/>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}
