@@ -9,7 +9,17 @@ class Ordencompra(models.Model):
         ('e', 'Efectivo'),
         ('c', 'Credito')
     )
-    ocompra = models.PositiveIntegerField()
+
+    TIPO_COMPROBANTE = (
+        ('01', 'Factura'),
+        ('03', 'Boleta de Venta'),
+        ('07', 'Nota de Credito'),
+        ('08', 'Nota de Debito'),
+        ('60', 'Control Interno'),
+    )
+
+    tcomprobante = models.CharField(max_length = 2, choices = TIPO_COMPROBANTE)
+    ccompra = models.PositiveIntegerField()
     pcompra = models.ForeignKey(Proveedor)
     aproucto = models.ForeignKey(Producto)
     tpago = models.CharField(max_length = 1, choices = TIPO_PAGO)
