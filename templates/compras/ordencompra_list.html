@@ -1,0 +1,10 @@
+{% for compra in ordencompra_list %}
+    {{ compra.get_tcomprobante_display }}
+    {{ compra.ccompra }}
+    {{ compra.pcompra.rsocial }}
+    {{ compra.aproucto.nombre }}
+    {{ compra.get_tpago_display }}
+    {{ compra.fecha }}
+    {{ compra.cantidad }}
+    {{ compra.uprecio }}
+{% endfor %}

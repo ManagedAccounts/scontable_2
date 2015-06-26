@@ -19,7 +19,7 @@ class Ordencompra(models.Model):
     )
 
     tcomprobante = models.CharField(max_length = 2, choices = TIPO_COMPROBANTE)
-    ocompra = models.PositiveIntegerField()
+    ccompra = models.PositiveIntegerField()
     pcompra = models.ForeignKey(Proveedor)
     aproucto = models.ForeignKey(Producto)
     tpago = models.CharField(max_length = 1, choices = TIPO_PAGO)
