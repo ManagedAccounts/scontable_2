@@ -1,23 +1,31 @@
-body{
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 auto;
-    background: #fff;
-    font-family: Arial;
-}
-section {
-    background:#B2EBF2;
-}
-section article{
+/* body{ */
+    /* width: 100%; */
+/*     margin: 0 auto; */
+/*     padding: 0 auto; */
+/*     background: #fff; */
+/*     font-family: Arial; */
+/* } */
+/* section { */
+/*     background:#B2EBF2; */
+/* } */
+.asideprovee article{
     position:relative;
     display:inline-block;
+}
+.sub_menu, .buscar_proveedores{
+    position:relative;
+    display:inline-block;
+}
+.buscar_proveedores{
+    position:relative;
+    bottom:12em;
 }
 a{
     text-decoration:none;
 }
 .asideprovee{
     position:relative;
-    left:30%;
+    left:36%;
 }
 section article div .indicador{
     color:#E1F5FE;

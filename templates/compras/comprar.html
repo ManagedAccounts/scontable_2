@@ -1,0 +1,190 @@
+{% extends 'home.html'}
+{% load staticfiles %}
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'css/modal.css'%}">
+<link rel="stylesheet" href="{% static 'css/tabla.css'%}">
+<link rel="stylesheet" href="{% static 'css/compra.css'%}">
+<link rel="stylesheet" href="{% static 'css/control_div.css'%}">
+{% endblock %}
+{% block comprar %}
+ <div class="compra">
+                <div class="compra_cabeza">                
+                    <!-- <h2><i>Managed Account</i></h2> -->            
+                    <form action="sistema_base_submit"method="post" accept-charset="utf-8" enctype="multipart/form-data">{% csrf_token %}
+                        <fieldset>
+                            <legend>Formulario de Compra</legend>
+                            <div class="control_lado">
+                                <div class="control-group">
+                                    <label>Tipo Comprobante :</label>
+                                    <input type="text" name="" value="" placeholder="">                                
+                                </div>
+                                <div class="control-group">
+                                    <label>Código de Compra :</label>
+                                    <input type="text" name="" value=""
+                                    placeholder="">
+                                </div>
+                                <div class="control-group">
+                                    <label>Proveedor :</label>
+                                    <input type="text" name="" value="" placeholder="">                                
+                                </div>  
+                                <div class="control-group">
+                                    <label>Articulo :</label>
+                                    <select class="tipo_producto">
+                                        <option value="">Mercadería</option>                            
+                                        <option value="">Inmueble, Maquinaria y Equipo</option>
+                                        <option value="">Intangible</option>
+                                    </select> 
+                                </div> 
+                                <div class="control-group">
+                                    <label>Tipo de Pago :</label>
+                                    <input type="text" name="" value="" placeholder="">                                
+                                </div>   
+                            </div>
+                            <div class="control_lado">                  
+                                <div class="control-group">
+                                    <label>Efectivo/Credito :</label>
+                                    <input type="text" name="" value="" placeholder="">                                
+                                </div>
+                                <div class="control-group">
+                                    <label>Stock :</label>
+                                    <input type="text" name="" value="" placeholder="">                                
+                                </div> 
+                                <div class="control-group">
+                                    <label>Precio Unitario :</label>
+                                    <input type="text" name="" value="" placeholder="">                                
+                                </div> 
+                            <div class="control-group">
+                                <label>Moneda :</label>
+                                <select class="">
+                                    <option value="Soles">S/. </option>
+                                    <option value="Dólares">$/. </option>
+                                    <option value="Euros">€/. </option>
+                                    <option value="Yenes">¥/. </option>
+                                </select>                                
+                            </div>
+                            <div class="control-group">
+                                <label>Fecha :</label>
+                                <input type="datetime" name="" value="" placeholder="">                        
+                            </div>
+                        </div>
+                        </fieldset>
+                    </form>           
+                </div>
+                    <div id="button"><a class="button_modal" href="#modal">Añadir</a></div>
+                <!-- <div><a  class="add_article" href="#modal">Añadir Articulos</a></div> -->
+                <div id="add_articulos"  class="tabla" >
+                    <table  class="zebra" >
+                        <caption class=""><em>Añadir Articulos</em></caption>
+                        <thead>   
+                            <tr>
+                                <th>Nro</th>
+                                <th>Nombre</th>
+                                <th>Código de Producto</th>
+                                <th>Unidad de Medida</th>
+                                <th>Tipo de Documento</th>
+                                <th>Precio de Compra</th>
+                                <th>Marca de Producto</th>
+                                <th>Precio de Venta</th>
+                                <th>Descripcion</th>
+                                <th>Imagen</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr> 
+                    </table>
+                </div>
+                <div id="modal">
+                    <div class="modal-content">
+                        <div class="titulo_modal">
+                            <h2 class="h2_modal">Agregando Articulos</h2>
+                        </div>
+                        <div class="campos_articulo">
+                            <form class="items" action="#" method="post">
+                                <fieldset>  
+                                    <div class="control_lado">
+                                        <div  class="control-group"> 
+                                            <label>Nombre:</label>
+                                            <input placeholder="Artículo"  type="text">
+                                        </div> 
+                                        <div  class="control-group">
+                                            <label>Código de Producto:</label>
+                                            <input placeholder="Letras y numeros" type="text"> 
+                                        </div>  
+                                        <div  class="control-group">
+                                            <label>Tipo de Producto:</label>
+                                            <select>
+                                                <option></option>
+                                            </select>
+                                        </div>  
+                                        <div  class="control-group">
+                                            <label>Tipo de Unidad:</label>
+                                            <select>
+                                                <option></option>
+                                            </select>
+                                        </div>  
+                                        <div  class="control-group">
+                                            <label>Marca de Producto:</label>
+                                            <input placeholder="Marca de Producto"  type="text">
+                                        </div> 
+                                    </div>
+                                    <div class="control_lado">
+                                        <div  class="control-group">
+                                            <label>Precio de Compra:</label>
+                                            <input placeholder="Precio de Compra" type="number">
+                                        </div> 
+                                        <div  class="control-group">
+                                            <label>Precio de Venta:</label>
+                                            <input placeholder="Precio de Venta" type="number">
+                                        </div> 
+                                        <div  class="control-group">
+                                            <label>Descripcion:</label>
+                                            <input placeholder="Descripción"  type="text">
+                                        </div> 
+                                        <div  class="control-group">
+                                            <label>Imagen:</label>
+                                            <a href="#"><img src="" /></a>
+                                        </div> 
+                                    </div>
+                                    <div id="button" class="save_button">
+                                        <a href="#" class="button_modal"><span class="icon-guardar"></span><span class="mls"> Aceptar</span></a>
+                                        <a href="#" class="button_modal"><span class="icon-salir1"></span><span class="mls"> Cancelar</span></a>
+                                    </div>
+                                </fieldset>
+                            </form>
+                            <div class="footer button">
+                                <a href="#" class="button_modal"><span class="icon-retroceder"></span><span class="mls"> Atras</span></a>
+                            </div> 
+                        </div>			
+                    </div>
+                </div>
+            </div> 

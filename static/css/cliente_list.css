@@ -1,11 +1,24 @@
-section .cuerpo .tabla{
-    left:16%;
+/* section .cuerpo  .sub_menu, .buscar_clientes .tabla{ */
+/*     display: inline-block; */
+/* } */
+section .cuerpo .buscar_clientes .tabla {
+    position: relative;
+    overflow:auto;
+
+}
+.sub_menu, .buscar_clientes{
+    position:relative;
+    display:inline-block;
+    /* top:50px; */
+}
+.facilitador, .tabla{
+    /* position:relative; */
+    left:10%;
 }
 label{
     color:#03A9F4;
-    font-size:20px;
 }
-section .cuerpo div .opciones{
+section .cuerpo .buscar_clientes .facilitador .opciones{
     background:#18FFFF;
     padding:7px;
     outline:none;
@@ -18,36 +31,32 @@ section .cuerpo div .opciones{
     box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
     color:#888;
     border:none;
-    outline:none;
-    display: inline-block;
+    /* display: inline-block; */
     -webkit-appearance:none;
     -moz-appearance:none;
     appearance:none;
     cursor:pointer;
     font-size:15px;
 }
-section .cuerpo .facilitador .segundo .opciones option:hover{
+section .cuerpo .buscar_clientes .facilitador .segundo .opciones option:hover{
     color:#888
 }
-section .cuerpo div .opciones:hover{
+section .cuerpo .buscar_clientes .facilitador .opciones:hover{
     color:#888;
     font-size:16px;
 }
 /* section .cuerpo div .opciones:focus{ */
 /*     background:#fff; */
 /* } */
-section .cuerpo .facilitador{
+section .cuerpo .buscar_clientes .facilitador{
     position:relative;
     bottom:20px;
 }
 section .cuerpo .facilitador .segundo{
     padding:10px;
     background:#fff;
-    left:12%;
+    /* left:12%; */
     border-radius:12px;
-}
-label{
-    margin-right:7%;
 }
 .buscar{
     float:right;
@@ -59,7 +68,7 @@ label{
     width:230px;
 }
 .buscar:focus{
-    width:270px;
+    /* width:270px; */
     border:1px solid #03a0f4;
     -webkit-transition: 0.4s;
 }
@@ -77,4 +86,8 @@ label{
 .busco:hover{
     background-image: -webkit-gradient(linear, left top, left bottom, from(#18ffff), to(#0f0f09));
     background-image:         linear-gradient(top, #18ffff, #eee);
+}
+
+.tabla .zebra .registro{
+    font-size:20px;
 }

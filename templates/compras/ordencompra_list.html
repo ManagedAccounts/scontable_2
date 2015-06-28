@@ -1,12 +1,134 @@
-{% for compra in ordencompra_list %}
-    {{ compra.get_tcomprobante_display }}
-    {{ compra.ccompra }}
-    {{ compra.pcompra.rsocial }}
-    {{ compra.aproucto.nombre }}
-    {{ compra.aproucto.get_tunidad_display }}
-    {{ compra.aproucto.get_tproducto_display }}
-    {{ compra.get_tpago_display }}
-    {{ compra.fecha }}
-    {{ compra.cantidad }}
-    {{ compra.uprecio }}
-{% endfor %}
+{% extends 'home.html' %}
+{% load staticfiles %}
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'css/tabla.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registro_compras.css' %}">
+{% endblock %}
+{% block registro_compras %}
+<div class="tabla_compras">
+    <table class="zebra registro_compras" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+        <caption id="caption_regis_buy"><em>Reporte del Registro de Compras</em></caption>
+        <thead>
+            <tr>
+                <th scope="col" rowspan="3">NÚMERO CORRELATIVO DEL REGISTRO O CÓDIGO UNICO DE LA OPERACIÓN</th> 
+                <th scope="col" rowspan="3">FECHA DE EMISIÓN DEL COMPROBANTE DE PAGO O DOCUMENTO</th> 
+                <th scope="col" rowspan="3">FECHA DE VENCIMIENTO O FECHA DE PAGO</th> 
+                <th scope="col" colspan="3">COMPROBANTE DE PAGO O DOCUMENTO</th>
+                <th scope="col" rowspan="3">N° DEL COMPROBANTE DE PAGO, DOCUMENTO, N° DE ORDEN DEL FORMULARIO FÍSICO O VIRTUAL, N° DE DUA, DSI O LIQUIDACIÓN DE COBRANZA U OTROS DOCUMENTOS EMITIDOS POR SUNAT PARA ACREDITAR EL CRÉDITO FISCAL EN LA IMPORTACIÓN</th> 
+                <th scope="col" colspan="3">INFORMACIÓN DEL PROVEEDOR</th> 
+                <th scope="col" colspan="2">ADQUISICIONES GRAVADAS DESTINADAS A OPERACIONES GRAVADAS Y/O DE EXPORTACIÓN</th> 
+                <th scope="col" colspan="2">ADQUISICIONES GRAVADAS DESTINADAS A OPERACIONES GRAVADAS Y/O DE EXPORTACIÓN Y A OPERACIONES NO GRAVADAS</th> 
+                <th scope="col" colspan="2">ADQUISICIONES GRAVADAS DESTINADAS A OPERACIONES  NO GRAVADAS</th> 
+                <th scope="col" rowspan="3">VALOR DE LAS ADQUISICIONES NO GRAVADAS</th>
+                <th scope="col" rowspan="3">ISC</th>
+                <th scope="col" rowspan="3">OTROS TRIBUTOS Y CARGOS</th> 
+                <th scope="col" rowspan="3">IMPORTE  TOTAL</th> 
+                <th scope="col" rowspan="3">N° DE COMPROBANTE DE PAGO EMITIDO POR SUJETO NO DOMICILIADO</th> 
+                <th scope="col" colspan="2">CONSTANCIA DE DEPÓSITO DE DETRACCIÓN</th> 
+                <th scope="col" rowspan="3">TIPO DE  CAMBIO</th>
+                <th scope="col" colspan="4">REFERENCIA DEL COMPROBANTE DE PAGO O DOCUMENTO ORIGINAL QUE SE MODIFICA</th>
+            </tr>
+            <tr>
+                <th scope="col" rowspan="2">TIPO (TABLA 10)</th> 
+                <th scope="col" rowspan="2">SERIE O CÓDIGO DE LA DEPENDENCIA ADUANERA (TABLA 11)</th>
+                <th scope="col" rowspan="2">AÑO DE EMISIÓN DE LA DUA O DSI</th> 
+                <th scope="col" colspan="2">DOCUMENTO DE IDENTIDAD</th>
+                <th scope="col" rowspan="2">APELLIDOS Y NOMBRES, DENOMINACIÓN O RAZÓN SOCIAL</th> 
+                <th scope="col" rowspan="2">BASE IMPONIBLE </th>
+                <th scope="col" rowspan="2">IGV</th>
+                <th scope="col" rowspan="2">BASE IMPONIBLE </th>
+                <th scope="col" rowspan="2">IGV</th>
+                <th scope="col" rowspan="2">BASE IMPONIBLE </th>
+                <th scope="col" rowspan="2">IGV</th>
+                <th scope="col" rowspan="2">NÚMERO</th>
+                <th scope="col" rowspan="2">FECHA DE EMISIÓN</th> 
+                <th scope="col" rowspan="2">FECHA</th>
+                <th scope="col" rowspan="2">TIPO</th>
+                <th scope="col" rowspan="2">SERIE</th>                                
+                <th scope="col" rowspan="2">N° DEL COMPROBANTE DE PAGO O DOCUMENTO</th>
+            </tr>
+            <tr>
+                <th scope="col" >TIPO (TABLA 2)</th>    
+                <th scope="col" >NÚMERO</th> 
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td>&nbsp;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>                                
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td> 
+            </tr>            
+        </tfoot>
+        {% for compra in ordencompra_list %}
+        <tr>
+            <td>{{compra.id}}</td> 
+            <td>{{ compra.fecha }}</td> 
+            <td></td> 
+            <td>{{compra.tcomprobante}}</td> 
+            <td></td> 
+            <td></td> 
+            <td>{{compra.aproucto.cproducto}}</td> 
+            <td>6</td> 
+            <td>{{compra.pcompra.rod}}</td> 
+            <td>{{compra.pcompra.rsocial}}</td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+            <td></td> 
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<!-- {% for compra in ordencompra_list %} -->
+<!--     {{ compra.get_tcomprobante_display }} -->
+<!--     {{ compra.ccompra }} -->
+<!--     {{ compra.pcompra.rsocial }} -->
+<!--     {{ compra.aproucto.nombre }} -->
+<!--     {{ compra.aproucto.get_tunidad_display }} -->
+<!--     {{ compra.aproucto.get_tproducto_display }} -->
+<!--     {{ compra.get_tpago_display }} -->
+<!--     {{ compra.fecha }} -->
+<!--     {{ compra.cantidad }} -->
+<!--     {{ compra.uprecio }} -->
+<!-- {% endfor %} -->
+
+{% endblock %}

@@ -10,6 +10,8 @@
     <!-- <link rel="stylesheet" href="css/tabla.css"> -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/icomoon.css' %}">
     <!-- <link rel="stylesheet" type="text/css" href="css/compra.css"> -->
+    {% block extracss %}
+    {% endblock %}
 </head>
 <body>        
     <nav>
@@ -17,7 +19,7 @@
         <!--     <h1>Managed Account</h1> -->
         <!-- </div> -->
         <div   id="cssmenu">   
-            <ul>
+            <ul class="nav_inicio">
                 <li class="active"><a href="#">Home</a></li>                
                 <li class='has-sub '><a href="#">Sistema</a>
                     <ul>
@@ -28,15 +30,16 @@
                             </ul>
                         </li>
                         <li><a href="#">Caja</a></li>
-                        <li><a href="#">Proveedores</a></li>
+                        <li><a href="{% url 'proveedores:proveedor_l'%}">Proveedores</a></li>
                       
                     </ul>
                 </li>
                 <li><a href="#">Admin</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Help</a></li>
-                <li class="avatar"><img src="{% static 'img/img/megan.jpg' %}"
-                    height="35.375" width="52.5"></li>
+            </ul>
+            <ul class="config_user">
+                <li class="avatar"><img src="{% static 'img/person1.png' %}"  height="30" width="30"></li>
                 <li class='has-sub  'class="user"><a href="#">{{ user  }}</a> 
                     <ul>
                         <li><a href="#">Perfil</a></li>
@@ -59,16 +62,19 @@
                 <h2><a href="#">Vender</a></h2>
                 <details>
                     <summary><b>Registros</b></summary>
-                    <a href="#"><i>Compras</i></a><br>
-                    <a href="#"><i>Ventas</i></a><br>
+                    <a href="{% url 'compras:compras_l' %}"><i>Compras</i></a><br>
+                    <a href="#"><i>Ventas</i></a><br>   
                     <a href="#"><i>Libro Diario</i></a>
                 </details>
-                <h2><a href="clientes.html">R. Clientes</a></h2>
-                <h2><a href="proveedores.html">R. Proveedor</a></h2>
-                <h2><a href="articulos.html">R. Articulos</a></h2>
+                <h2><a href="{% url 'clientes:clientes_l' %}">R. Clientes</a></h2>
+                <h2><a href="#">R. Proveedor</a></h2>
+                <h2><a href="#">R. Articulos</a></h2>
             </div>
-            {% block compras %}
-
+            {% block registro_compras %}
+            {% endblock %}
+            {% block buscar_clientes %}
+            {% endblock %}
+            {% block buscar_proveedores %}
             {% endblock %}
         </article>
         

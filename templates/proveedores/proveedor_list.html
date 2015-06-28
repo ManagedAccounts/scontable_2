@@ -1,25 +1,12 @@
-<!DOCTYPE html>
+{% extends 'home.html' %}
 {% load i18n staticfiles %}
-<html>
-    <head>
-        <title>Proveedores</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <link rel="stylesheet" href="{% static 'css/caja.css' %}">
-        <link rel="stylesheet" href="{% static 'css/proveedor_result.css' %}">
-    </head>
-    <body>
-
-        <nav>
-            <div class="menu">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Caja</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>
-            </div>
-        </nav>                                  
-        <section>
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'css/caja.css' %}">
+<link rel="stylesheet" href="{% static 'css/tabla.css' %}">
+<link rel="stylesheet" href="{% static 'css/proveedor_result.css' %}">
+{% endblock %}
+{% block buscar_proveedores %}
+<div class="buscar_proveedores">
             <aside class="asideprovee">
                 <article>
                     <div class="">
@@ -65,8 +52,6 @@
                     </tr>
                 {% endfor %}
                </table>
-            </aside>
-        </section>
-    </body>
-</html>
-
+           </aside>
+       </div>
+{% endblock %}
