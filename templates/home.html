@@ -34,7 +34,7 @@
                       
                     </ul>
                 </li>
-                <li><a href="#">Admin</a></li>
+                <li><a href="/admin/">Admin</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Help</a></li>
             </ul>
@@ -82,20 +82,24 @@
     <footer id="footer_world">
         <div>
             <div>
+                <li><img class="logo_empresa"src="{% static 'img/logo.png' %}"></li>
                 <li>
                     Comunicanos al N° 999999999
                 </li>
-                <li>Escribanos a nuestro correo <a href="#">http://wwww.sistemaContable.com.pe</a></li>
+                <li>Escribanos a nuestro correo <a class="pagina" href="#">http://wwww.sistemaContable.com.pe</a></li>
             </div>
             <div>
-                <li><a href="#">GitHub</a></li>                    
-                <li><a href="#">Facebook</a></li>  
-                <li><a href="#">Twitter</a></li>                    
-                <li><a href="#">Google Plus</a></li>                    
+                <li><a class="github" href="#"><img src="{% static 'img/github.png' %}" width="26.6" height="22.16"> GitHub</a></li>                    
+                <li><a class="facebook" href="#"><span
+                            class="icon-facebook"></span> Facebook</a></li>  
+                <li><a class="twitter" href="#"><span
+                            class="icon-twitter"></span> Twitter</a></li>                    
+                <li><a class="plus" href="#"><span
+                            class="icon-google-plus"></span> Google Plus</a></li>                    
             </div>
             <div>
-                <li><a href="#">Servicios y Términos de Licencia</a></li>
-                <li><a href="#">Copyright &#169; 2015</a></li>
+                <li><a class="terminos" href="#">Servicios y Términos de Licencia</a></li>
+                <li>Copyright &#169; Managed Account 2015</li>
             </div>
         </div>
     </footer>
