@@ -7,7 +7,7 @@ class Proveedor(models.Model):
         (0, 'Activo'),
         (1, 'Inactivo'),
     )
-    rsocial = models.CharField(max_length = 100)#Razon Social
+    rsocial = models.CharField(max_length = 101)#Razon Social
     rod = models.PositiveSmallIntegerField() # RUC
     direccion = models.CharField(max_length = 100) #direccion
     toc = models.PositiveSmallIntegerField() # telefono o celular

@@ -32,7 +32,7 @@
                       
                     </ul>
                 </li>
-                <li><a href="#">Admin</a></li>
+                <li><a href="admin/">Admin</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Help</a></li>
                 <li class="avatar"><img src="{% static 'img/img/megan.jpg' %}"
@@ -55,7 +55,7 @@
     <section>
         <article class="cuerpo">
             <div class="sub_menu">
-                <h2><a href="#">Comprar</a></h2>
+                <h2><a href="{% url 'compras:compras_c'%}">Comprar</a></h2>
                 <h2><a href="#">Vender</a></h2>
                 <details>
                     <summary><b>Registros</b></summary>
@@ -63,9 +63,9 @@
                     <a href="#"><i>Ventas</i></a><br>
                     <a href="#"><i>Libro Diario</i></a>
                 </details>
-                <h2><a href="clientes.html">R. Clientes</a></h2>
-                <h2><a href="proveedores.html">R. Proveedor</a></h2>
-                <h2><a href="articulos.html">R. Articulos</a></h2>
+                <h2><a href="{% url 'clientes:clientes_c'%}">R. Clientes</a></h2>
+                <h2><a href="{% url 'proveedores:proveedor_c'%}">R. Proveedor</a></h2>
+                <h2><a href="{% url 'productos:productos_c'%}">R. Articulos</a></h2>
             </div>
             {% block compras %}
 
