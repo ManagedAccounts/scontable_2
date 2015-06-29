@@ -25,7 +25,7 @@ a{
 }
 .asideprovee{
     position:relative;
-    left:36%;
+    /* left:1%; */
 }
 section article div .indicador{
     color:#E1F5FE;
@@ -71,3 +71,5 @@ section article div .indicador{
 	position:relative;
 	top:1px;
 }
+
+

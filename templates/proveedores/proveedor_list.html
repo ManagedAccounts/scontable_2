@@ -26,10 +26,12 @@
                     <thead>
                         <tr>
                             <th>Proveedor</th>
-                            <th>Comprobante</th>
-                            <th>Fecha de Emisión</th>
-                            <th>Importe</th>
-                            <th>Moneda</th>
+                            <th>RUC/DNI</th>
+                            <th>Dirección</th>
+                            <th>Teléfono/Celular</th>
+                            <th>E-mail</th>
+                            <th>Contacto</th>
+                            <th>Descripción</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -39,16 +41,20 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tfoot>
 
                 {%for proveedor in proveedor_list %}
                     <tr>
-                        <td>{{ proveedor }}</td>
+                        <td>{{ proveedor.rsocial }}</td>
                         <td>{{ proveedor.rod }}</td>
-                        <td>{{ proveedor }}</td>
-                        <td>{{ proveedor }}</td>
-                        <td>{{ proveedor }}</td>
+                        <td>{{ proveedor.direccion }}</td>
+                        <td>{{ proveedor.toc }}</td>
+                        <td>{{ proveedor.email }}</td>
+                        <td>{{ proveedor.contacto }}</td>
+                        <td>{{ proveedor.descripcion }}</td>
                     </tr>
                 {% endfor %}
                </table>
