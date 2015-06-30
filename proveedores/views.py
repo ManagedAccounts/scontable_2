@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.views.generic.list import ListView
+from django.views.generic import View
 from django.views.generic.edit import CreateView
 from proveedores.models import Proveedor
 from proveedores.forms import ProveedorForm
@@ -21,3 +23,14 @@ class ProveedorCreate(CreateView):
         # self.object.owner = self.request.user
         self.object.save()
         return redirect('proveedores:proveedor_l')
+
+class ProveedorView(View):
+    def get(self, request):
+        if 'buscar' in request.GET and request.GET['buscar']:
+            buscar = request.GET['buscar']
+            proveedores = Proveedor.objects.filter(rod__icontains=buscar)
+            return render(request, 'proveedores/search_result.html',
+                {'proveedores': proveedores, 'query': buscar } )
+        else:
+            return HttpResponse('Lo sentimos mucho no se encontro el Proveedor.')
+
