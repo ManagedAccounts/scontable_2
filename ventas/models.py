@@ -1,50 +1,95 @@
-#coding: utf-8
+# coding: utf-8
+
 from django.db import models
-from productos.models import Producto
+from django.contrib.auth.models import User
+import decimal
+
+# Create your models here.
+TAX_VALUE = 0.18
 
 
 class Cliente(models.Model):
-    ruc=models.IntegerField()
-    razon_social=models.CharField(max_length = 100)
-    direccion=models.CharField(max_length = 100)
+    ruc = models.IntegerField()
+    razon_social = models.CharField(max_length=100)
+    direccion = models.CharField(max_length=200)
+    telefono = models.CharField(max_length=10)
+
     def __unicode__(self):
-        return self.razon_social
+        return U"%s-%s" % (self.ruc, self.razon_social)
 
-tabla_10=(
-    ('00','otros'),
-    ('01','Factura'),
-    ('02','Recibo por honorarios'),
-    ('03','Boleta'),
-    ('04','Liquidacion de compra'),
-    ('05','Boleto de compañia de aviacion comercial por el transporte aereo de pasajeros'),
-    ('06','carta de porte aéreo'),
-    ('07','Nota de crédito'),
-    ('08','Nota de débito'),
-    ('09','Guia de remisión'),
-    ('10','Recibo por arrendamiento'),
-    ('11','Póliza emitida por las bolsas de Valores, Bolsas de productos o agentes de intermediacion por operaciones realizadas en bolsas de valores o productos fuera de las mismas, autorizadas por CONASEV'),
-    ('12','Ticket o cinta emitido por maquina registradora'),
-    ('13','Documento emitido por bancos, instituciones financieras, crediticias y de seguros que se encuenten bajo el de la Superintendencia de Banca y Seguros'),
-    ('14','Recibo por servicios públicos de suministro de energía eléctrica, agua, teléfono, telex y tlegráficos y otros, servicios complementarios que se incluyan en el recibo de servicio público'),
-    ('15','Boleto emitido por las empresas de transporte público urbano de pasajeros'),
-)
 
-class Comprobante(models.Model):
-    cliente=models.ForeignKey(Cliente)
-    tabla_10=models.CharField(max_length=2, choices=tabla_10, default=01)
-    serie=models.IntegerField()
-    numero=models.IntegerField()
-    fecha=models.DateField()
-    igv=models.FloatField(default=0.00)
-    total=models.FloatField(default=0.00)
+class CategoriaProducto(models.Model):
+    nombre = models.CharField(max_length=200)
+    descripcion = models.TextField(max_length=400)
+
     def __unicode__(self):
-        return self.num_factura
+        return u'%s' % (self.nombre)
 
-class Detalle(models.Model):
-    comprobante=models.ForeignKey(Comprobante)
-    cantidad=models.IntegerField()
-    articulo=models.ForeignKey(Producto)
-    importe=models.FloatField(default=0.00)
+
+class Producto(models.Model):
+    # codigo = models.IntegerField()
+    code = models.CharField(max_length=5, unique=True)
+    number = models.IntegerField()
+
+    categoria = models.ForeignKey(CategoriaProducto, null=True, blank=True)
+    nombre = models.CharField(max_length=40)
+    descripcion = models.TextField(max_length=300, null=True, blank=True)
+    imagen = models.ImageField(upload_to="productos",verbose_name='productos', null=True, blank=True)
+    precio = models.DecimalField(max_digits=6, decimal_places=2)
+    afecto = models.BooleanField(default=False)
+    igv = models.DecimalField(max_digits=6, decimal_places=2)
+    stock = models.IntegerField()
+    estado = models.BooleanField(default=True)
+
+    # def get_serial_number(self):
+    #     "Get formatted value of serial number"
+    #     return "%.2d-%.3d" % (self.code, self.number)
+
+    # def save(self):
+    #     "Get last value of Code and Number from database, and increment before save"
+    #     top = Producto.objects.order_by('-code','-producto')[0]
+    #     self.code = top.code + 1
+    #     self.number = top.number + 1
+    #     super(Producto, self).save()
+
     def __unicode__(self):
-        return self.Comprobante
+        return u'%s-%s' % (self.code, self.nombre)
 
+    def save(self, *args, **kwargs):
+
+        if self.afecto==True:
+            self.igv = round(float(self.precio) * TAX_VALUE, 2)
+            super(Producto, self).save(*args, **kwargs)
+        else:
+            self.igv=0
+            super(Producto, self).save(*args, **kwargs)
+
+class Factura(models.Model):
+    serie = models.IntegerField()
+    numero = models.CharField(max_length=6)
+    cliente = models.ForeignKey(Cliente, null=True, blank=True)
+    fecha = models.DateTimeField(auto_now_add=True)
+    total = models.DecimalField(
+        max_digits=8, decimal_places=2, null=True, blank=True)
+    vendedor = models.ForeignKey(User)
+
+    class Meta:
+
+        # no duplicate serie y numero juntos
+        unique_together = (('serie', 'numero'),)
+
+    def __unicode__(self):
+        return U" %s- %s" % (self.serie, self.numero)
+
+
+class DetalleFactura(models.Model):
+    factura = models.ForeignKey(Factura, db_column='factura_id')
+    producto = models.ForeignKey(Producto, db_column='producto_id')
+    descripcion = models.CharField(max_length=40)
+    precio = models.DecimalField(max_digits=6, decimal_places=2)
+    cantidad = models.IntegerField()
+    impuesto = models.DecimalField(max_digits=6, decimal_places=2)
+    subtotal = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __unicode__(self):
+        return u'%s' % self.descripcion

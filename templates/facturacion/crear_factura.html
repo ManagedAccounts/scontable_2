@@ -1,0 +1,448 @@
+{% extends 'base.html' %}
+{% block titulo %}Factura de Venta {% endblock %}
+{% block subtitulo %} Facturación{% endblock %}
+{% block contenido %}
+{% load humanize %}
+    {% if user.is_authenticated %}
+
+        
+
+        {% if messages %}{% for message in messages %}
+          <div class="alert alert-danger alert-dismissable">
+          <i class="fa fa-info"></i>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <b>Alert!</b> {{ message }}
+          </div>
+      {% endfor %}{% endif %}
+
+        <!-- Main content -->
+        <section class="content invoice">                    
+            <!-- title row -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="page-header">
+                        <i class="fa fa-globe"></i> ABC.
+                        <small class="pull-right">Fecha: {% now "d/m/Y" %}</small>
+                    </h2>                            
+                </div><!-- /.col -->
+            </div>
+            <!-- info row -->
+            <div class="row invoice-info">
+                <div class="col-sm-4 invoice-col">
+                    <b>Factura</b> <br/>
+
+                    Serie:<input name="p-serie" id="p-serie" placeholder="Serie" type="text" required="true"><br/>
+                    Num:<input name="p-num" id="p-num" placeholder="Numero" type="text" required="true">
+                    <br/>
+                    <b>Fecha de compra:</b> {% now "d/m/Y" %}<br/><br/>
+                    
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="buscarProductoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">&times;</span>
+                                        <span class="sr-only">Cancelar</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">Buscar Producto</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-group">
+                                        <input name="producto" id="producto-id" class="form-control" placeholder="Ingrese nombre del producto" type="text">
+                                        <span class="input-group-btn">
+                                            <button name="seach" id="p-buscar" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                                        </span>
+                                    </div>
+                                    <div id="producto-resultado"></div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        Cancelar
+                                    </button>
+                                    <button type="button" class="btn btn-primary" id="p-seleccionar" disabled>
+                                        Seleccionar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buscarProductoModal">
+                        Seleccionar Producto
+                    </button>
+
+                </div><!-- /.col -->
+
+                <div class="col-sm-4 invoice-col">
+                    <strong>Cliente</strong>
+                    <!-- Modal -->
+                    <div class="modal fade" id="buscarClienteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">&times;</span>
+                                        <span class="sr-only">Cancelar</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">Buscar Cliente</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-group">
+                                        <input name="cliente" id="cliente-id" class="form-control" placeholder="Ingrese numero de ruc" type="text">
+                                        <span class="input-group-btn">
+                                            <button name="seach" id="c-buscar" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                                        </span>
+                                    </div>
+                                    <div id="cliente-resultado"></div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        Cancelar
+                                    </button>
+                                    <button type="button" class="btn btn-primary" id="c-seleccionar" disabled>
+                                        Seleccionar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button data-toggle="modal" data-target="#buscarClienteModal">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <div class="modal fade" id="crearProductoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">&times;</span>
+                                        <span class="sr-only">Cancelar</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">Crear Producto</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/factura/venta" method="post">
+                                        {% csrf_token %}
+                                        {{ form }}
+                                        <input type="submit" value="Guardar" />
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                        
+                    <br>
+                    Identificación: <span id="c-id"></span><br/>                    
+                    razon_social: <span id="c-razon_social"></span><br/>
+                    direccion: <span id="c-direccion"></span><br/>
+                    telefono: <span id="c-telefono"></span><br/>
+                </div><!-- /.col -->
+
+
+                <div class="col-sm-4 invoice-col">
+                    <strong>Despachador</strong><br>
+                    Apellido: {{user.last_name}}<br>
+                    Nombre: {{user.first_name}}<br>
+                    
+                </div><!-- /.col -->
+                
+            </div><!-- /.row -->
+
+            <!-- Table row -->
+            <div class="row">
+                <div class="col-xs-12 table-responsive">
+                    <table class="table table-striped" id="tb-detalle">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Producto</th>
+                                <th>Serial #</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>IGV</th>
+                                <th>Subtotal</th>
+                            </tr>                                    
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>                            
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+
+            <div class="row">
+                <!-- accepted payments column -->
+                <div class="col-xs-6">
+                    <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                        No se realiza cambio ni devolución de dinero por los productos adquiridos, por favor verifique el estado de cada uno de los items de su compra.
+                    </p>
+                </div><!-- /.col -->
+                <div class="col-xs-6">
+                    <p class="lead">Totales de la compra</p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th style="width:50%">Subtotal:</th>
+                                <td align="right"> <label id='sum-subtotal'>.00</label></td>
+                            </tr>
+                            <tr>
+                                <th>Igv(18%)</th>
+                                <td align="right"><label id='sum-tax'>.00</label></td>
+                            </tr>
+                            <tr>
+                                <th>Total: $</th>
+                                <td align="right"><label id='sum-total'>.00</label></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+
+            <!-- this row will not appear when printing -->
+            <div class="row no-print">
+                <div class="col-xs-12">
+                    <form action="/factura/venta" method="post" onsubmit="onEnviar()">
+                        {% csrf_token %}
+                        <input id="proceso" name="proceso" type="hidden" />
+                        <button class="btn btn-success pull-right" id="comprar"><i class="fa fa-credit-card"></i> Realizar Compra</button>  
+                    </form>
+                    <button class="btn btn-primary pull-right"
+                        style="margin-right: 5px;" onclick="window.print();"><i
+                            class="fa fa-download"></i>Imprimir </button>
+                </div>
+            </div>
+
+        </form>
+        </section><!-- /.content -->
+
+
+
+
+
+    {% else %}
+
+
+    {% endif %}
+
+{% endblock %}
+
+{% block js %}
+<script>
+    var proceso = new Object();
+
+    proceso.tipoPro = 1;
+    proceso.producto = new Array();
+
+    var table = new Array();
+    var cliente = new Object();
+
+    $(document).ready(function(){
+        $("#c-buscar").click(function () {          
+                
+            var id = $('#cliente-id').val();
+            $.ajax({
+                data: {'id':id},
+                url: '/factura/buscar_cliente',
+                type: 'get',
+                success: function(data){
+                    //console.log(JSON.stringify(data));
+                    var html = ""
+                    if(data.length != 0){
+                        for (var i = 0; i < data.length; i++) {
+                            html += '<strong>Cliente</strong><br>';
+                            html += 'numeroid: ' + data[i].pk + '<br>';
+                            html += 'razon_social: ' + data[i].fields.razon_social + '<br>';
+                            html += 'direccion: ' + data[i].fields.direccion + '<br>';
+                            html += 'telefono: ' + data[i].fields.telefono + '<br>';
+                            html += 'Identificación: ' + data[i].fields.ruc + '<br>';
+
+                            cliente.pk = data[i].pk;
+                            cliente.ruc = data[i].fields.ruc;
+                            cliente.razon_social = data[i].fields.razon_social;
+                            cliente.direccion = data[i].fields.direccion;
+                            cliente.telefono = data[i].fields.telefono;
+                        }  
+                        $("#c-seleccionar").attr("disabled", false);
+                    }else{
+                        html += '<strong>No existe un cliente con ese numero de identificación</strong><br><button class="btn btn-primary" style="margin-right: 5px;"> Crear Usuario</button>';
+                        $("#c-seleccionar").attr("disabled", true);
+                    }
+                    $('#cliente-resultado').html(html); 
+                }
+            });            
+        });
+
+        $("#c-seleccionar").click(function () {
+            //console.log(cliente.numIdentificacion);
+            proceso.clienProv = cliente.pk;
+            $("#c-id").text(cliente.ruc);
+            $("#c-razon_social").text(cliente.razon_social);
+            $("#c-direccion").text(cliente.direccion);
+            $("#c-telefono").text(cliente.telefono);
+            $('#buscarClienteModal').modal('hide');
+        });
+
+        $("#p-buscar").click(function () {
+            var id = $('#producto-id').val();
+            $.ajax({
+                data: {'id':id},
+                url: '/factura/buscar_producto',
+                type: 'get',
+                success: function(data){
+                    console.log(JSON.stringify(data));                    
+                    var html = ""
+                    if(data.length != 0){
+                        for (var i = 0; i < data.length; i++) {
+                            html += '<strong>Producto</strong><br>';
+                            html += 'Serial: ' + data[i].pk + '<br>';
+                            html += 'Nombre: ' + data[i].fields.nombre + '<br>';
+                            html += 'Precio: ' + data[i].fields.precio + '<br>';
+                            html += 'stock: ' + data[i].fields.stock + '<br>';
+                            html += '<input name="p-cantidad" id="p-cantidad" placeholder="Cantidad" type="text">';
+
+                            var fila = new Object();
+                            fila.pk = data[i].pk;
+                            fila.nombre = data[i].fields.nombre;
+                            fila.precio = data[i].fields.precio;
+                            fila.igv = data[i].fields.igv;
+                            fila.cantidad = 1;
+                            fila.descuento = 0;
+
+                            table.push(fila);
+                        }
+                        $('#producto-resultado').html(html); 
+                        $("#p-seleccionar").attr("disabled", false);
+                    }else{
+                        html += '<strong>No existe producto con ese code</strong><br>';
+                        //html += '<a class="btn btn-primary" style="margin-right: 5px;" href=""> Crear Producto</a>';
+                        
+                        $("#p-seleccionar").attr("disabled", true);
+                    }
+                    $('#producto-resultado').html(html); 
+                }
+            });     
+        });   
+
+
+        $("#p-seleccionar").click(function () {
+            var d = table;
+            var t = document.getElementById('tb-detalle').getElementsByTagName('tbody')[0];
+            var rowCount = t.rows.length;
+
+            var row = t.insertRow(rowCount);
+            
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            //cell7.className = 'right';
+            cell4.setAttribute('align','right');
+            cell5.setAttribute('align','center');
+            cell6.setAttribute('align','right');
+            cell7.setAttribute('align','right');
+
+            cell1.innerHTML = rowCount+1;
+            cell2.innerHTML = d[d.length-1].nombre;
+            cell3.innerHTML = d[d.length-1].pk;
+            cell4.innerHTML = "$" + [round(d[d.length-1].precio,2).toFixed(2)];
+
+            if($('#p-cantidad').val() == ''){
+                d[d.length-1].cantidad = 1;
+                cell5.innerHTML = d[d.length-1].cantidad;
+            }else{
+                d[d.length-1].cantidad = $('#p-cantidad').val();
+                cell5.innerHTML = d[d.length-1].cantidad;
+            }
+            /*
+            $.ajax({
+                data: {'descuento': $('#p-cantidad').val()},
+                url:"/factura/descuento",                
+                type: 'get',
+                success:function(data){
+                    d[d.length-1].descuento = data.descuento;
+                    cell6.innerHTML = data.descuento + " %";
+
+                    cell7.innerHTML = [([d[d.length-1].precio + (d[d.length-1].precio * (d[d.length-1].ganancia / 100))] * d[d.length-1].cantidad) - (([d[d.length-1].precio + (d[d.length-1].precio * (d[d.length-1].ganancia / 100))] * d[d.length-1].cantidad) * (d[d.length-1].descuento / 100))];
+
+                }
+            }); 
+            */
+            cell6.innerHTML = round(d[d.length-1].igv*d[d.length-1].cantidad*1,2).toFixed(2);
+            cell7.innerHTML = round((d[d.length-1].precio)*d[d.length-1].cantidad*1,2).toFixed(2);
+
+            var html = ""
+            $('#producto-resultado').html(html);
+            $('#producto-id').val('');
+            $("#p-seleccionar").attr("disabled", true);
+            $('#buscarProductoModal').modal('hide');
+
+            /*
+            $.ajax({                
+                url:"/factura/secuencia_item",
+                success:function(data){
+                    cell1.innerHTML = data.item;
+                    proceso.producto.push({'item': data.item, 'serial': d[d.length-1].pk, 'cantidad': d[d.length-1].cantidad});
+                }   
+            });
+            */
+            proceso.producto.push({'serial': d[d.length-1].pk, 'cantidad': d[d.length-1].cantidad});
+            calTotal();           
+        });
+           
+
+
+    });   
+
+    function onEnviar(){
+        proceso.serie = $('#p-serie').val();
+        proceso.numero = $('#p-num').val();
+        console.log(JSON.stringify(proceso));
+       document.getElementById("proceso").value=JSON.stringify(proceso);
+    }
+
+    var total = 0;
+    function calTotal(){
+        var total=0;
+        var t=0;
+        $('#tb-detalle tbody tr').each(function () {
+            total = total*1 + $(this).find("td").eq(6).html()*1;    
+            t = t*1 + $(this).find("td").eq(5).html()*1; 
+            
+        });
+        $('#sum-subtotal').text((total-t).toFixed(2));
+        $('#sum-tax').text(t.toFixed(2));
+
+        $('#sum-total').text(total.toFixed(2));
+
+
+    }
+
+function round(value, exp) {
+  if (typeof exp === 'undefined' || +exp === 0)
+    return Math.round(value);
+
+  value = +value;
+  exp  = +exp;
+
+  if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0))
+    return NaN;
+
+  // Shift
+  value = value.toString().split('e');
+  value = Math.round(+(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp)));
+
+  // Shift back
+  value = value.toString().split('e');
+  return +(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp));
+}
+
+    </script>
+
+{% endblock %}

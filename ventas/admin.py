@@ -1,22 +1,47 @@
 from django.contrib import admin
-from .models import Comprobante, Cliente, Detalle
-"""
-class ComprobanteAdmin(admin.ModelAdmin):
-    list_display=['num_factura','num_boleta','fecha','igv','total']
-    list_filter=['cliente']
+from .models import DetalleFactura, Factura, Producto, CategoriaProducto, Cliente
+# Register your models here.
+
+
+class DetalleFacturaInline(admin.TabularInline):
+    model = DetalleFactura
+
+
+class FacturaAdmin(admin.ModelAdmin):
+
+    raw_id_fields = ('cliente',)
+    inlines = (DetalleFacturaInline,)
+    exclude = ['vendedor', ]
+
+    def save_model(self, request, obj, form, change):
+        if not obj.pk:
+            obj.vendedor = request.user
+        obj.save()
+
+
+class ProductoAdmin(admin.TabularInline):
+    model = Producto
+
+admin.site.register(Factura, FacturaAdmin)
+
+
+admin.site.register(CategoriaProducto)
+
 
 class ClienteAdmin(admin.ModelAdmin):
-    list_display=['ruc','razon_social','direccion']
 
-class DetalleAdmin(admin.ModelAdmin):
-    list_filter=['comprobante','articulo']
-    list_display=['cantidad','importe']
+    search_fields = ('razon_social', 'ruc',)
+    list_display = (
+        'razon_social', 'ruc', 'direccion', 'telefono',)
 
-admin.site.register(Comprobante, comprobanteAdmin)
 admin.site.register(Cliente, ClienteAdmin)
-admin.site.register(Detalle, DetalleAdmin)
 
-"""
-admin.site.register(Comprobante)
-admin.site.register(Cliente)
-admin.site.register(Detalle)
+
+class ProductoAdminx(admin.ModelAdmin):
+
+    search_fields = ('code', 'nombre',)
+    list_display = (
+        'code', 'number', 'categoria', 'nombre', 'precio', 'igv',)
+    exclude = ['igv', ]
+
+admin.site.register(Producto, ProductoAdminx)

@@ -1,17 +1,20 @@
-# coding:utf-8
-from django.forms import ModelForm
 from django import forms
-from .models import Comprobante, Cliente, Detalle
+from .models import Cliente, Producto, CategoriaProducto
+from django.forms import ModelForm
 
-class ComprobanteForm(ModelForm):
-     class Meta:
-         model = Comprobante
 
 class ClienteForm(ModelForm):
-     class Meta:
-         model = Cliente
+    class Meta:
+        model=Cliente
+        fields=['ruc','razon_social','direccion','telefono']
 
-class DetalleForm(ModelForm):
-     class Meta:
-         model = Detalle
+class ProductoForm(ModelForm):
+    class Meta:
+        model=Producto
+        fields=['code','number','categoria','nombre','descripcion','imagen','precio','afecto','stock','estado']
+        exclude=['igv']
 
+class CategoriaForm(ModelForm):
+    class Meta:
+        model=CategoriaProducto
+        fields=['nombre','descripcion']

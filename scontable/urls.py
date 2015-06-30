@@ -35,6 +35,27 @@ urlpatterns = [
     url(r'^login/$',LoginView.as_view(), name='login'),
     url(r'^logout/$',LogoutView.as_view(), name='logout'),
     url(r'^signup/$',CreateUserView.as_view(), name='signup'),
+    url(r'^factura/venta$', 'ventas.views.facturaCrear',
+        name="factura_venta"),
+    url(r'^factura/buscar_cliente$', 'ventas.views.buscarCliente'),
+    url(r'^factura/buscar_producto$', 'ventas.views.buscarProducto'),
+
+    url(r'^factura/consultar$', 'ventas.views.consultarFactura', name="consultar_factura"),
+
+    #==================================================================
+    url(r'^clientes/$','ventas.views.clientes'),
+    url(r'^clienteAdd/$','ventas.views.clienteAdd'),
+    url(r'^clienteEdit/(?P<id>\d+)$','ventas.views.clienteEdit'),
+    url(r'^clienteDelete/(?P<id>\d+)$','ventas.views.clienteDelete'),
+    url(r'^productos/$','ventas.views.productos'),
+    url(r'^productoAdd/$','ventas.views.productoAdd'),
+    url(r'^productoEdit/(?P<id>\d+)$','ventas.views.productoEdit'),
+    url(r'^productoDelete/(?P<id>\d+)$','ventas.views.productoDelete'),
+    url(r'^categoria/$','ventas.views.categoria'),
+    url(r'^categoriaAdd/$','ventas.views.categoriaAdd'),
+    url(r'^categoriaEdit/(?P<id>\d+)$','ventas.views.categoriaEdit'),
+    url(r'^categoriaDelete/(?P<id>\d+)$','ventas.views.categoriaDelete'),
+
 ]
 
 
