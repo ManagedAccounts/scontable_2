@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 €}q(Uclientes.urls]qUurlpatternsqaUventas.forms]q(UClienteFormqUProductoFormqUCategoriaFormqeUclientes.views]q(UClienteListq	UClienteViewq
 UClienteCreateqeUscontable.urls]qUurlpatternsqaUscontable.settings]q(U	TEMPLATESqUUSE_L10NqULANGUAGE_CODEqUUSE_TZqUUSE_I18NqU	DATABASESqU	TIME_ZONEqU
 STATIC_URLqU
 MEDIA_ROOTqUROOT_URLCONFqU	MEDIA_URLqUWSGI_APPLICATIONqUMIDDLEWARE_CLASSESqUDEBUGqUALLOWED_HOSTSqU
 SECRET_KEYqUBASE_DIRqUSTATICFILES_DIRSq UINSTALLED_APPSq!eu.
+=======
+€}q(Uventas.forms]q(UClienteFormqUProductoFormqUCategoriaFormqeUscontable.urls]qUurlpatternsqaUscontable.settings]q(U	TEMPLATESq	UUSE_L10Nq
+ULANGUAGE_CODEqUUSE_TZqUUSE_I18NqU	DATABASESqU	TIME_ZONEqU
+STATIC_URLqU
+MEDIA_ROOTqUROOT_URLCONFqU	MEDIA_URLqUWSGI_APPLICATIONqUMIDDLEWARE_CLASSESqUDEBUGqUALLOWED_HOSTSqU
+SECRET_KEYqUBASE_DIRqUSTATICFILES_DIRSqUINSTALLED_APPSqeUventas.views]q(UcategoriaEditqUbuscarClienteqUclientesqUclienteEditq UfacturaCrearq!UproductoAddq"U	categoriaq#UcategoriaDeleteq$UclienteDeleteq%U
+clienteAddq&UcategoriaAddq'U	productosq(UconsultarFacturaq)UproductoEditq*UproductoDeleteq+UbuscarProductoq,eu.
+>>>>>>> f5bc25d6c03323aa907302a30610d0d041ae4486
