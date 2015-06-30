@@ -1,25 +1,12 @@
-<!DOCTYPE html>
+{% extends 'home.html' %}
 {% load i18n staticfiles %}
-<html>
-    <head>
-        <title>Proveedores</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <link rel="stylesheet" href="{% static 'css/caja.css' %}">
-        <link rel="stylesheet" href="{% static 'css/proveedor_result.css' %}">
-    </head>
-    <body>
-
-        <nav>
-            <div class="menu">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Caja</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>
-            </div>
-        </nav>                                  
-        <section>
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'css/caja.css' %}">
+<link rel="stylesheet" href="{% static 'css/tabla.css' %}">
+<link rel="stylesheet" href="{% static 'css/proveedor_result.css' %}">
+{% endblock %}
+{% block buscar_proveedores %}
+<div class="buscar_proveedores">
             <aside class="asideprovee">
                 <article>
                     <div class="">
@@ -39,10 +26,12 @@
                     <thead>
                         <tr>
                             <th>Proveedor</th>
-                            <th>Comprobante</th>
-                            <th>Fecha de Emisión</th>
-                            <th>Importe</th>
-                            <th>Moneda</th>
+                            <th>RUC/DNI</th>
+                            <th>Dirección</th>
+                            <th>Teléfono/Celular</th>
+                            <th>E-mail</th>
+                            <th>Contacto</th>
+                            <th>Descripción</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -52,21 +41,23 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tfoot>
 
                 {%for proveedor in proveedor_list %}
                     <tr>
-                        <td>{{ proveedor }}</td>
+                        <td>{{ proveedor.rsocial }}</td>
                         <td>{{ proveedor.rod }}</td>
-                        <td>{{ proveedor }}</td>
-                        <td>{{ proveedor }}</td>
-                        <td>{{ proveedor }}</td>
+                        <td>{{ proveedor.direccion }}</td>
+                        <td>{{ proveedor.toc }}</td>
+                        <td>{{ proveedor.email }}</td>
+                        <td>{{ proveedor.contacto }}</td>
+                        <td>{{ proveedor.descripcion }}</td>
                     </tr>
                 {% endfor %}
                </table>
-            </aside>
-        </section>
-    </body>
-</html>
-
+           </aside>
+       </div>
+{% endblock %}

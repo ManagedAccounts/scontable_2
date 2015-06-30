@@ -8,9 +8,10 @@ body{
 caption{
     background: #18FFFF;
     font-weight: bold;
-    font-size: 1.4em;
+    /* font-size: 1.4em; */
     color: #03A9F4;    
 }
+
 caption:first-child{
     border-radius: 12px;
 }
@@ -79,6 +80,16 @@ section .cuerpo .sub_menu details a:hover{
     display:inline-block;
     margin-left: 10px;
 }
+.nav_inicio, .config_user{
+    /* position:relative; */
+    display:inline-block;
+    /* top:10px; */
+}
+#cssmenu .config_user{
+    position:relative;
+    /* float:right; */
+    margin-left:49.75%;;
+}
 /*div ul li{
     position:relative;
     list-style-type:none;
@@ -92,8 +103,8 @@ nav #cssmenu{
 }
 img{
     border-radius:50%;
-    border:1px solid #000;
-    margin: 4px 10.5px;
+    border:1px solid #03a9f4;
+    margin: 10px 0 0 0;
 }
 
 nav #white{
@@ -130,21 +141,17 @@ nav #white #search input[type="text"]:focus {
     width: 200px;
     border: 1px solid #03A9F4;
 }
-section .cuerpo .tabla, .sub_menu{
-    position: relative;
-    display: inline-block;
-}
-section .cuerpo .tabla {
-    position: absolute;
-    left: 18%;
-    bottom: 50px;
-    width:1100px; 
-    height:300px; 
-    overflow:auto;
+section .cuerpo .buscar_clientes .tabla {
+    /* position: relative; */
+    /* left: 12%; */
+    /* bottom: 50px; */
+    /* width:1100px; */ 
+    /* height:300px; */ 
+    /* overflow:auto; */
 
 }
 section .cuerpo .articulo{
-    width: 900px
+    /* width: 900px */
 }
 section .cuerpo .tabla .zebra thead tr th{
     position: relative;

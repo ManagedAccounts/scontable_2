@@ -1,71 +1,24 @@
-<!DOCTYPE html>
+{% extends 'home.html' %}
 {% load i18n staticfiles %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Listar Clientes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <link rel="stylesheet" href="{% static 'css/sistema_base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+{% block extracss %}
     <link rel="stylesheet" href="{% static 'css/tabla.css' %}">
-    <link rel="stylesheet" href="{% static 'css/cliente_list.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/icomoon.css' %}">
-</head>
-<body>
-    <nav id="menu_estatico">
-        <!-- <div class="nav_principal name"> -->
-        <!--     <h1>Managed Account</h1> -->
-        <!-- </div> -->
-        <div class="nav_principal navegador"  id="cssmenu">   
-            <ul>
-                <li class="active"><a href="#"><b>Home</b></a></li>                
-                <li class='has-sub '><a href="#"><b>Sistema</b></a>
-                    <ul>
-                        <li class='has-sub '><a href='#'>Product 1</a>
-                            <ul>
-                                <li><a href='#'>Sub Item</a></li>
-                                <li><a href='#'>Sub Item</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Caja</a></li>
-                        <li><a href="#">Proveedores</a></li>
-                      
-                    </ul>
-                </li>
-                <li><a href="#"><b>Admin</b></a></li>
-                <li><a href="#"><b>About</b></a></li>
-                <li><a href="#"><b>Help?</b></a></li>
-                <li class="avatar"><img src="{% static 'img/img/megan.jpg' %}"
-                    height="35.375" width="52.5"></li>
-                <li class="has-sub user"><a href="#">User</a>
-                    <ul>
-                        <li><a href="#"><b>Profile</b></a></li>
-                        <li><a href="#">Setting</a></li>
-                        <li><a href="#">Log out</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <!-- <div class="nav_principal" id="white"> -->
-        <!--     <form method="get" action="/search" id="search"> -->
-        <!--         <input name="q" type="text" size="40" placeholder="Search RUC" /> -->
-        <!--     </form> -->
-        <!-- </div> -->
-    </nav>
-    <section>
-        <article class="cuerpo">
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/control_div.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cliente_list.css' %}">    {% endblock %}
+{% block buscar_clientes %}
+    <div class="buscar_clientes">
             <div class="facilitador">
                 <div class="segundo"> 
                     <label><b>Buscar por:</b>
                         <select class="opciones" >
-                            <option>RUC</option>
                             <option>Ninguno</option>
+                            <option>RUC</option>
                             <option>Razon Social</option>
                         </select>
                     </label> 
 
-                    <input class="buscar" type="text" placeholder="Estas buscando por ">
                     <a href="#" class="busco">Buscar</a>
+                    <input class="buscar" type="text" placeholder="Estas buscando por ">
                 </div>
             </div>
             <div class="tabla">
@@ -111,10 +64,62 @@
                     </tr>
                     {% endfor%}
                 </table>                
-                <a href="#" class="agregar"><span class="icon-agregar-archivo"></span> Agregar</a>
-            </div>    
-        </article>
-    </section>    
-</body>
-</html>
-
+                <a href="#modal" class="agregar"><span class="icon-agregar-archivo"></span> Agregar</a>
+            </div> 
+            <div id="modal">
+                 <div class="modal-content">
+                     <div class="titulo_modal">
+                         <h2 class="h2_modal">Agregando Articulos</h2>
+                     </div>
+                     <div class="campos_list_client">
+                         <form class="items" action="#" method="post">
+                             <fieldset>  
+                                 <div class="control_lado">
+                                     <div  class="control-group"> 
+                                         <label>Razon Social</label>
+                                         <input placeholder="Razon Social"  type="text">
+                                     </div> 
+                                     <div  class="control-group">
+                                         <label>Tipo de Cliente:</label>
+                                         <select>
+                                             <option></option>
+                                         </select>
+                                     </div> 
+                                     <div  class="control-group">
+                                         <label>Tipo de Documento:</label>
+                                         <select>
+                                             <option>RUC</option>
+                                             <option>DNI</option>
+                                         </select>
+                                     </div>  
+                                 </div>
+                                 <div class="control_lado">
+                                     <div  class="control-group">
+                                         <label>Dirección:</label>
+                                         <input placeholder="Dirección" type="number">                                        
+                                     </div> 
+                                     <div  class="control-group">
+                                         <label>Teléfono/Celular:</label>
+                                         <input placeholder="Precio de Venta" type="number">
+                                     </div> 
+                                     <div  class="control-group">
+                                         <label>Estado:</label>
+                                         <select>
+                                             <option></option>
+                                         </select>
+                                     </div> 
+                                 </div>
+                                 <div id="button" class="save_button">
+                                     <a href="#" class="button_modal"><span class="icon-guardar"></span><span class="mls"> Aceptar</span></a>
+                                     <a href="#" class="button_modal"><span class="icon-salir1"></span><span class="mls"> Cancelar</span></a>
+                                 </div>
+                             </fieldset>
+                         </form>
+                         <div class="footer button">
+                             <a href="#" class="button_modal"><span class="icon-retroceder"></span><span class="mls"> Atras</span></a>
+                         </div> 
+                     </div>			
+                 </div>
+             </div> 
+         </div>
+{% endblock %}

@@ -53,8 +53,8 @@ div.nav_login div{
 }
 .div_ayuda li a:hover{
     /* color:#18ffff; */
-    color:#f5f5f5;
-    box-shadow:0 0 12px 0 #18FFFF;
+    color:#18ffff;
+    /* box-shadow:0 0 12px 0 #18FFFF; */    
     padding:7px;
     border-radius:10px;
 }

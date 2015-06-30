@@ -1,0 +1,99 @@
+#footer_world{
+    position:relative;
+    background:#006064;
+    padding:12px;
+    font-family:arial;
+    border-top:4px solid #00BCD4;
+    border-bottom:1px solid #03a9f4;
+}
+#footer_world div div{
+    position:relative;
+    display:inline-block;
+    padding:10px;
+}
+#footer_world div div li{
+    color:#f5f5f5;
+    font-size:18px;
+    padding:10px;
+}
+
+#footer_world div div{
+    list-style-type:none;
+}
+#footer_world div div li a{
+    text-decoration:none;
+    background:#607D8B;
+    color:#f5f5f5;
+    padding:8px;
+    border-radius:12px;
+    border:none;
+    -webkit-box-shadow: 4px 4px 4px #CFD8DC;
+    box-shadow: 4px 4px 0 0 #CFD8DC;
+    -webkit-transition:0.4s;
+}
+#footer_world div div li .github img{
+    border:none;
+    position:relative;
+    top:6px;
+}
+#footer_world div div li .github:hover{
+    -webkit-box-shadow: 4px 4px 4px #4183C4;
+    box-shadow: 4px 4px 0 0 #4183C4;
+    -webkit-transition:0.4s;
+    background:#000;
+}
+#footer_world div div li .github:active{
+    position:relative;
+    top:1px;
+}
+#footer_world div div li .facebook:hover{
+    -webkit-box-shadow: 4px 4px 4px #00B8D4;
+    box-shadow: 4px 4px 0 0 #00b8d4;
+    -webkit-transition:0.4s;
+    background:#3b5998;
+}
+#footer_world div div li .facebook:active{
+    position:relative;
+    top:1px;
+}
+#footer_world div div li .twitter:hover{
+    -webkit-box-shadow: 4px 4px 4px #40C4FF;
+    box-shadow: 4px 4px 0 0 #40C4FF;
+    -webkit-transition:0.4s;
+    background:#4099FF;    
+}
+#footer_world div div li .twitter:active{
+    position:relative;
+    top:1px;
+}
+#footer_world div div li .plus:hover{
+    -webkit-box-shadow: 4px 4px 4px #FF5252;
+    box-shadow: 4px 4px 0 0 #ff5252;
+    -webkit-transition:0.4s;
+    background:#d34836;    
+}
+#footer_world div div li .plus:active{
+    position:relative;
+    top:1px;
+}
+.logo_empresa{
+    position:relative;
+    border:none;
+    width:96%;
+    border-radius:12px;
+}
+#footer_world div div li a.pagina:active{
+    position:relative;
+    top:1px;
+}
+#footer_world div div li a.pagina:hover{
+   background:#009688;
+}
+
+#footer_world div div li .terminos:hover{
+    background:#00C853;
+}
+#footer_world div div li a.terminos:active{
+    position:relative;
+    top:1px;
+}

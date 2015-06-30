@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="{% static 'css/sistema_base.css' %}">
     <link rel="stylesheet" href="{% static 'css/menu.css' %}">
-    <!-- <link rel="stylesheet" href="css/tabla.css"> -->
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/icomoon.css' %}">
     <!-- <link rel="stylesheet" type="text/css" href="css/compra.css"> -->
+    {% block extracss %}
+    {% endblock %}
 </head>
 <body>        
     <nav>
@@ -17,8 +19,8 @@
         <!--     <h1>Managed Account</h1> -->
         <!-- </div> -->
         <div   id="cssmenu">   
-            <ul>
-                <li class="active"><a href="#">Home</a></li>                
+            <ul class="nav_inicio">
+                <li class="active"><a href="/">Home</a></li>                
                 <li class='has-sub '><a href="#">Sistema</a>
                     <ul>
                         <li class='has-sub '><a href='#'>Product 1</a>
@@ -28,15 +30,20 @@
                             </ul>
                         </li>
                         <li><a href="#">Caja</a></li>
-                        <li><a href="#">Proveedores</a></li>
+                        <li><a href="{% url 'proveedores:proveedor_l'%}">Proveedores</a></li>
                       
                     </ul>
                 </li>
+<<<<<<< HEAD
                 <li><a href="admin/">Admin</a></li>
+=======
+                <li><a href="/admin/">Admin</a></li>
+>>>>>>> ece5a908f344ce7b32499ba10254e2c97913a03f
                 <li><a href="#">About</a></li>
                 <li><a href="#">Help</a></li>
-                <li class="avatar"><img src="{% static 'img/img/megan.jpg' %}"
-                    height="35.375" width="52.5"></li>
+            </ul>
+            <ul class="config_user">
+                <li class="avatar"><img src="{% static 'img/person1.png' %}"  height="30" width="30"></li>
                 <li class='has-sub  'class="user"><a href="#">{{ user  }}</a> 
                     <ul>
                         <li><a href="#">Perfil</a></li>
@@ -59,20 +66,53 @@
                 <h2><a href="#">Vender</a></h2>
                 <details>
                     <summary><b>Registros</b></summary>
-                    <a href="#"><i>Compras</i></a><br>
-                    <a href="#"><i>Ventas</i></a><br>
+                    <a href="{% url 'compras:compras_l' %}"><i>Compras</i></a><br>
+                    <a href="#"><i>Ventas</i></a><br>   
                     <a href="#"><i>Libro Diario</i></a>
                 </details>
+<<<<<<< HEAD
                 <h2><a href="{% url 'clientes:clientes_c'%}">R. Clientes</a></h2>
                 <h2><a href="{% url 'proveedores:proveedor_c'%}">R. Proveedor</a></h2>
                 <h2><a href="{% url 'productos:productos_c'%}">R. Articulos</a></h2>
+=======
+                <h2><a href="{% url 'clientes:clientes_l' %}">R. Clientes</a></h2>
+                <h2><a href="#">R. Proveedor</a></h2>
+                <h2><a href="#">R. Articulos</a></h2>
+>>>>>>> ece5a908f344ce7b32499ba10254e2c97913a03f
             </div>
-            {% block compras %}
-
+            {% block registro_compras %}
+            {% endblock %}
+            {% block buscar_clientes %}
+            {% endblock %}
+            {% block buscar_proveedores %}
             {% endblock %}
         </article>
         
     </section>
+    <footer id="footer_world">
+        <div>
+            <div>
+                <li><img class="logo_empresa"src="{% static 'img/logo.png' %}"></li>
+                <li>
+                    Comunicanos al N° 999999999
+                </li>
+                <li>Escribanos a nuestro correo <a class="pagina" href="#">http://wwww.sistemaContable.com.pe</a></li>
+            </div>
+            <div>
+                <li><a class="github" href="#"><img src="{% static 'img/github.png' %}" width="26.6" height="22.16"> GitHub</a></li>                    
+                <li><a class="facebook" href="#"><span
+                            class="icon-facebook"></span> Facebook</a></li>  
+                <li><a class="twitter" href="#"><span
+                            class="icon-twitter"></span> Twitter</a></li>                    
+                <li><a class="plus" href="#"><span
+                            class="icon-google-plus"></span> Google Plus</a></li>                    
+            </div>
+            <div>
+                <li><a class="terminos" href="#">Servicios y Términos de Licencia</a></li>
+                <li>Copyright &#169; Managed Account 2015</li>
+            </div>
+        </div>
+    </footer>
     
 </body>
 </html> 
