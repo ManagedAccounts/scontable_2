@@ -1,0 +1,31 @@
+input[type="text"]{
+    outline:none;
+    padding:4px;
+    margin:0 0 5px 0;
+    border:1px solid #69F0AE;
+    border-radius:7px;
+    position:relative;
+    /* float:right; */
+}
+input[type="text"]:focus{
+    border:1px solid #00C853;
+    -webkit-transition: 0.4s;
+}
+.row .invoice-col label{
+    font-size:14px;
+    color:#009688;
+}
+.serie{
+    margin-left:19px;
+}
+#btn-color{
+    background:#00897b;
+    font-weight:bold;
+    font-size:16px;
+}
+#btn-color:hover{
+    background:#009688;
+}
+
+
+
