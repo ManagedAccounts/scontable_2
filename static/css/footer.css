@@ -1,7 +1,7 @@
 #footer_world{
     position:relative;
     background:#006064;
-    padding:12px;
+    padding:2px;
     font-family:arial;
     border-top:4px solid #00BCD4;
     border-bottom:1px solid #03a9f4;
@@ -9,7 +9,8 @@
 #footer_world div div{
     position:relative;
     display:inline-block;
-    padding:10px;
+    /* padding:10px; */
+    bottom:7px;
 }
 #footer_world div div li{
     color:#f5f5f5;
@@ -79,7 +80,7 @@
 .logo_empresa{
     position:relative;
     border:none;
-    width:96%;
+    width:84%;
     border-radius:12px;
 }
 #footer_world div div li a.pagina:active{
