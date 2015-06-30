@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-{% for compra in ordencompra_list %}
-    {{ compra.get_tcomprobante_display }}
-    {{ compra.ccompra }}
-    {{ compra.pcompra.rsocial }}
-    {{ compra.aproucto.nombre }}
-    {{ compra.aproucto.get_tunidad_display }}
-    {{ compra.aproucto.get_tproducto_display }}
-    {{ compra.get_tpago_display }}
-    {{ compra.fecha }}
-    {{ compra.cantidad }}
-    {{ compra.uprecio }}
-    <br/>
-{% endfor %}
-=======
 {% extends 'home.html' %}
 {% load staticfiles %}
 {% block extracss %}
@@ -147,4 +132,3 @@
 <!-- {% endfor %} -->
 
 {% endblock %}
->>>>>>> ece5a908f344ce7b32499ba10254e2c97913a03f

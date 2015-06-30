@@ -13,7 +13,8 @@
         <link href="/static/bootstrap/css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="/static/bootstrap/css/AdminLTE.css" rel="stylesheet" type="text/css" />
-        
+        {% block ventascss %} 
+        {% endblock %}
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -26,7 +27,7 @@
         <header class="header">
 
             <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
+            <nav id="navegador_ventas" class="navbar navbar-static-top" role="navigation">
                 {% if user.is_authenticated %}
                 <!-- Sidebar toggle button-->
                 <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
