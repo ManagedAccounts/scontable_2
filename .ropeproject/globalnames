@@ -1,1 +1,5 @@
-€}q(Uventas.forms]q(UClienteFormqUProductoFormqUCategoriaFormqeUscontable.urls]qUurlpatternsqau.
+€}q(Uclientes.urls]qUurlpatternsqaUventas.forms]q(UClienteFormqUProductoFormqUCategoriaFormqeUclientes.views]q(UClienteListq	UClienteViewq
+UClienteCreateqeUscontable.urls]qUurlpatternsqaUscontable.settings]q(U	TEMPLATESqUUSE_L10NqULANGUAGE_CODEqUUSE_TZqUUSE_I18NqU	DATABASESqU	TIME_ZONEqU
+STATIC_URLqU
+MEDIA_ROOTqUROOT_URLCONFqU	MEDIA_URLqUWSGI_APPLICATIONqUMIDDLEWARE_CLASSESqUDEBUGqUALLOWED_HOSTSqU
+SECRET_KEYqUBASE_DIRqUSTATICFILES_DIRSq UINSTALLED_APPSq!eu.
