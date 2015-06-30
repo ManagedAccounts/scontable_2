@@ -6,17 +6,22 @@
 <link rel="stylesheet" href="{% static 'css/proveedor_result.css' %}">
 {% endblock %}
 {% block buscar_proveedores %}
+
+        <!-- <form action="/proveedores/search/" method="GET"> -->
+            <!-- <input name="buscar" type="TEXT"> -->
+            <!-- <button type="submit" value="Search">Search</button> -->
+        <!-- </form> -->
 <div class="buscar_proveedores">
             <aside class="asideprovee">
                 <article>
                     <div class="">
                         <a href="#" class="indicador"><i>Proveedor: </i></a>
-                        <input type="text" class="provee">
+                        <input name="buscar"type="text" class="provee">
                     </div>
                 </article>
                 <article>
                     <div class="button">
-                        <a href="#" class="button-proveedor">Filtrar</a> 
+                        <a href="#" class="button-proveedor">Buscar</a> 
                         <a href="#" class="button-proveedor">Exportar</a> 
                     </div>
                 </article>
@@ -60,4 +65,5 @@
                </table>
            </aside>
        </div>
+
 {% endblock %}

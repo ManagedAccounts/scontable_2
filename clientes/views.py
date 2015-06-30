@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.views.generic.list import ListView
+from django.views.generic import View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from clientes.models import Cliente
 from clientes.forms import ClienteForm
@@ -22,16 +24,16 @@ class ClienteCreate(CreateView):
         self.object.save()
         return redirect('clientes:clientes_l')
 
-"""
-def clientesearch(request):
-    error = False
-    if 'w' in request.GET:
-        w = request.GET['w']
-        if not w:
-            error = True
+class ClienteView(View):
+    def get(self, request):
+        if 'buscar' in request.GET and request.GET['buscar']:
+            buscar = request.GET['buscar']
+            clientes = Cliente.objects.filter(rod__icontains=buscar)
+            # return render(request, 'proveedores/search_results.html',
+                # {'proveedores': proveedores, 'query': buscar})
+            return render(request, 'clientes/search_result.html',
+                {'clientes': clientes, 'query': buscar } )
+            #return render(request, 'proveedores/proveedor_list.html', {'error':True})
         else:
-            clientes = Cliente.objects.filter(rod__icontains=w)
-            return render(request, 'clientes/cliente_list.html',
-                          {'clientes:': clientes, 'result':w})
-    return render(request,'clientes/cliente_search.html', {'error': True})
-"""
+            return HttpResponse('Lo sentimos mucho no se encontro el Cliente.')
+

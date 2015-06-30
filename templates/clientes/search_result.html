@@ -1,0 +1,13 @@
+{{query}}
+
+{%if not clientes %}
+    <p>Ningun cliente coincide con {{ query }}
+{% endif %}
+
+{%if clientes%}
+    <p>Se encontraron: </p>
+{%for cliente in clientes%}
+{{cliente}}
+<br/>
+{%endfor%}
+{%endif%}
