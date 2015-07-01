@@ -59,7 +59,7 @@
                         <td>{{cliente.direccion}} </td>
                         <td>{{cliente.toc}}</td>
                         <td>{{ cliente.get_estado_display }}</td>
-                        <td><a href="#" class="editar"><img src="{% static 'img/img/editar.png' %}" alt=""width="30px" height="30px"></a></td> <!--<a href="#" class="editar"><span class="icon-editar"></span></a>-->
+                        <td><a href="{% url 'clientes:clientes_u' cliente.pk %}" class="editar"><img src="{% static 'img/img/editar.png' %}" alt=""width="30px" height="30px"></a></td> <!--<a href="#" class="editar"><span class="icon-editar"></span></a>-->
                         <td><a href="#" class="eliminar"><img src="{% static 'img/img/remove.png' %}" alt="" width="30px" height="30px"></a></td> <!--<a href="#" class="eliminar"><span class="icon-papelera"></span></a>-->
                     </tr>
                     {% endfor%}
