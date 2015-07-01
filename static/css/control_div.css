@@ -1,15 +1,39 @@
-
-input[type="text"],input[type="datetime"],input[type="number"]{
+.register_proveedor{
+    position:relative;
+    margin-left:80%;
+}
+input[type="submit"]{
+    outline:none;
+    padding:8px;
+    border:none;
+    background:#009688;
+    cursor:pointer;
+    border-radius:8px;
+    color:#f5f5f5;
+    font-size:16px;
+    -webkit-box-shadow:4px 4px 4px 0 #1DE9B6;
+    box-shadow:4px 4px 0 0 #1DE9B6;
+}
+input[type="submit"]:active{
+    position:relative;
+    top:1px;
+}
+input[type="submit"]:hover{
+    -webkit-box-shadow:none;
+    -webkit-transition:0.4s;
+    background:#00BFA5;
+}
+input[type="text"],input[type="datetime"],input[type="number"],input[type="email"]{
 	outline: none;
 	padding: 7px 8px;
 	border-radius: 7px;
-	border: 1px solid #84ffff;
-	background: #f5f5f5;	
-	width: 210px;
+	border: 1px solid #03a9f4;
+	background: #fff;	
+	width: 180px;
 
 }
-input[type="text"]:focus,input[type="datetime"]:focus, input[type="number"]:focus{
-	border: 1px solid #03a9f4;
+input[type="text"]:focus,input[type="datetime"]:focus, input[type="number"]:focus, input[type="email"]:focus{
+	border: 1px solid #009688;
 	-webkit-transition:0.7s;
 }
 select{
@@ -40,7 +64,9 @@ fieldset{
 	border: none;
 }
 legend{
-	font-size: 16px;
-	color: #03a9f4;
+	font-size: 20px;
+    font-weight:bold;
+	color: #0091EA;
 	text-align: center;
+
 }

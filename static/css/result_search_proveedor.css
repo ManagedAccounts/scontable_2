@@ -1,0 +1,41 @@
+ 
+.sub_menu, .result_proveed{
+    position:relative;
+    display:inline-block;
+
+}           
+
+.result_proveed{
+    position:relative;
+    bottom:10em;
+    margin-left:10em;
+}
+
+.search_provee{
+    padding:18px;
+    position:relative;
+    display:block;
+    background:#81D4FA;
+    border-radius:10px;
+}
+.search_provee article label{
+    color:#00C853;
+    font-size:20px;
+}
+
+#error_proveedor{
+    font-size:20px;
+    color:#F44336;
+    cursor:pointer;
+}
+#error_proveedor:hover{
+    border-bottom:3px solid #D50000;
+}
+
+#name_proveedor{
+    font-size:20px;
+    color:#0091Ea;
+    cursor:pointer;
+}
+#name_proveedor:hover{
+    border-bottom:3px solid #76FF03;

@@ -1,4 +1,60 @@
-<form method="post">{% csrf_token %}
-{{form.as_p}}
-<input type="SUBMIT" value="registrar proveedor"/>
-</form>
+{% extends 'home.html' %}
+{% load staticfiles %}
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'css/compra.css' %}">
+    <link rel="stylesheet" href="{% static 'css/control_div.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tabla.css' %}">
+    <link rel="stylesheet" href="{% static 'css/caja.css' %}">
+    <link rel="stylesheet" href="{% static 'css/proveedor_result.css' %}">
+{% endblock %}
+{% block registrar_proveedor %}      
+<div class="compra">
+                <div class="compra_cabeza">                
+                    <form  method="post" accept-charset="utf-8" enctype="multipart/form-data">{% csrf_token %}
+                        <fieldset>
+                            <legend>Formulario de Proveedor</legend>
+                            <div class="control_lado">
+                                <div class="control-group">
+                                    <label>Razón Social :</label> 
+                                    <input id="id_rsocial" maxlength="101" name="rsocial" type="text" />
+                                </div>
+                                <div class="control-group">
+                                    <label>RUC/DNI :</label>
+                                    <input id="id_rod" min="0" name="rod"type="number" />
+                                </div>
+                                <div class="control-group">
+                                    <label>Dirección :</label>
+                                    <input id="id_direccion" maxlength="100" name="direccion" type="text" />
+                                </div> 
+                                <div class="control-group">
+                                    <label>Teléfono o Celular :</label>     
+                                    <input id="id_toc" min="0" name="toc" type="number" />
+                                </div>  
+                                <div class="control-group">
+                                    <label>Email :</label>     
+                                    <input id="id_email" maxlength="254" name="email" type="email" />
+                                </div>  
+                            </div>
+                            <div class="control_lado">
+                                <div class="control-group">
+                                    <label>Contacto :</label> 
+                                    <input id="id_contacto" maxlength="100" name="contacto" type="text" >
+                                </div>  
+                               
+                                <div class="control-group">
+                                    <label>Descripción :</label> 
+                                    <textarea cols="40" id="id_descripcion" name="descripcion" rows="10"></textarea>
+                                </div>   
+                            </div>
+                            <div class="register_proveedor">
+                                <input type="SUBMIT" value="Registrar Proveedor"/>
+                            </div>
+                        </fieldset>
+                    </form>
+            </div>
+        </div>
+<!-- <form method="post">{% csrf_token %} -->
+<!-- {{form.as_p}} -->
+<!-- <input type="SUBMIT" value="registrar proveedor"/> -->
+<!-- </form> -->
+{% endblock %}

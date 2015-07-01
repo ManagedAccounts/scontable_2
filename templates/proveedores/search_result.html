@@ -1,13 +1,27 @@
-{{query}}
-
-{%if not proveedores %}
-    <p>Ningun cliente coincide con {{ query }}
-{% endif %}
-
-{%if proveedores%}
-    <p>Se encontraron: </p>
-{%for proveedor in proveedores%}
-{{ proveedor }}
-<br/>
-{%endfor%}
-{%endif%}
+{% extends 'home.html' %}
+{% load staticfiles %}
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'css/result_search_proveedor.css' %}">
+{% endblock %}
+{% block search_proveedor_result %}
+<div class="result_proveed">
+    <aside class="search_provee">
+        <article>
+            <label >{{query}}</label>
+            <br>
+            {%if not proveedores %}
+            <label>Ningun cliente coincide con el RUC <label id="error_proveedor">{{ query }}</label></label>
+            {% endif %}
+        </article>
+        <article>
+            {%if proveedores%}
+            <h2>Se encontraron: </h2>
+            {%for proveedor in proveedores%}
+            <label id="name_proveedor">{{ proveedor }}</label>
+            <br/>
+            {%endfor%}
+            {%endif%}
+        </article>
+    </aside>
+</div>
+{% endblock %}

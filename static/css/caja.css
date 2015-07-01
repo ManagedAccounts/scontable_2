@@ -15,7 +15,7 @@
 
 /* } */
 /* .menu ul{ */
-/*   /1* float: left;*/ */
+/*   /1* float: left;*/ 
 /*    list-style-type: none; */
 /*    padding: 0; */ 
 /*    position: relative; */ 
@@ -25,10 +25,10 @@
 /* .menu ul li{ */
 /*     padding:10px; */
 /*     display: inline-block; */
-/*    /1* background: #ECEFF1;*/ */
-/*     /*float: left;*/ */
+/*    /1* background: #ECEFF1;*/ 
+/*     /*float: left;*/ 
 /*     position: relative; */ 
-/*     /*right: 50%;*/ */
+/*     /*right: 50%;*/ 
 /*     border-radius:12px; */
 /* } */
 /* .menu ul li:hover{ */
@@ -43,9 +43,20 @@
 /* section{ */
 /*     padding:20px 0; */
 /*     background:#B2EBF2; */
-/*     /*border-radius:16px;*/ */
+/*     /*border-radius:16px;*/ 
 /* } */
+fieldset{
+    position:relative;
+    /* border:1px solid #18ffff; */
+    border:none;
+}
+label{
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
 
+    
+}
 aside {
     position:relative;
     /* left:20%; */
@@ -73,7 +84,7 @@ aside div .busca{
 }
 .buscar_proveedores{
     left:1%;
-    top:80px;
+    top:10px;
     position:relative;
     width:1100px;
     height:300px;
@@ -87,14 +98,10 @@ input[type="search"], input[type="text"]{
     padding-bottom:3px;
     background:#fff;
     padding:4px 10px;
-    width:120px;
+    /* width:120px; */
     border: 1px   solid  #03a9f4;
     -webkit-border-radius: 6px;
     -webkit-transition: all 0.3s linear 0s;
-}
-input[type="text"]{
-    width:18em;
-
 }
 input:focus{
     border: 1px solid #4caf50;

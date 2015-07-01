@@ -14,17 +14,22 @@
 <div class="buscar_proveedores">
             <aside class="asideprovee">
                 <article>
-                    <div class="">
-                        <a href="#" class="indicador"><i>Proveedor: </i></a>
-                        <input name="buscar"type="text" class="provee">
+                    <div class="div_buscar">
+                        <form class="form_buscar" action="/proveedores/search/" method="GET">
+                            <fieldset>
+                                <label id="label_proveedor">Proveedor:</label>
+                                <input name="buscar"class="provee" type="text">
+                                <button type="submit" class="button-proveedor"value="Search">Search</button>
+                            </fieldset>
+                        </form>
                     </div>
                 </article>
-                <article>
-                    <div class="button">
-                        <a href="#" class="button-proveedor">Buscar</a> 
-                        <a href="#" class="button-proveedor">Exportar</a> 
-                    </div>
-                </article>
+                <!-- <article> -->
+                <!--     <div class="button"> -->
+                <!--         <a href="#" class="button-proveedor">Buscar</a> -->
+                <!--         <a href="#" class="button-proveedor">Exportar</a> --> 
+                <!--     </div> -->
+                <!-- </article> -->
             </aside>
             <aside class="asideprovee">
                 <table class="zebra">
