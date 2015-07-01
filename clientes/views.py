@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic.list import ListView
-from django.views.generic import View
+from django.views.generic import View, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import reverse
 from clientes.models import Cliente
 from clientes.forms import ClienteForm
 
@@ -36,4 +38,48 @@ class ClienteView(View):
             #return render(request, 'proveedores/proveedor_list.html', {'error':True})
         else:
             return HttpResponse('Lo sentimos mucho no se encontro el Cliente.')
+class ClienteUpdate(UpdateView):
+    model = Cliente
+    form_class = ClienteForm
+    success_url = reverse_lazy("clientes:clientes_l")
+    template_name = 'clientes/cliente_update.html'
+
+    def dispatch(self, *args, **kwargs):
+        return super(ClienteUpdate, self).dispatch(*args, **kwargs)
+"""
+class ClienteDelete(DetailView):
+    model = Cliente
+
+    def dispatch(self, *args, **kwargs):
+        return super(ClienteDelete, self).dispatch(*args, **kwargs)
+
+    def get_success_url(self):
+        # To do this because the success_url class variable isn't reversed...
+        return reverse('clientes:clientes_l')
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
