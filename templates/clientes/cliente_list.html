@@ -1,10 +1,9 @@
 {% extends 'home.html' %}
 {% load i18n staticfiles %}
 {% block extracss %}
-<link rel="stylesheet" href="{% static 'css/caja.css' %}">
+    <link rel="stylesheet" href="{% static 'css/caja.css' %}">
     <link rel="stylesheet" href="{% static 'css/tabla.css' %}">
     <link rel="stylesheet" href="{% static 'css/cliente_list.css' %}">    
-<link rel="stylesheet" href="{% static 'css/proveedor_result.css' %}">
 {% endblock %}
 {% block buscar_clientes %}
     <div class="buscar_clientes">
@@ -14,7 +13,7 @@
                         <fieldset>
                             <label id="label_proveedor">Cliente:</label>
                             <input name="buscar"class="provee" type="text">
-                            <button type="submit" class="button-proveedor"value="Search">Buscar</button>
+                            <button type="submit" class="button-cliente"value="Search">Buscar</button>
                         </fieldset>
                     </form> 
                 </div>
