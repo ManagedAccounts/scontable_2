@@ -1,0 +1,94 @@
+section .cuerpo .agregar_clientes .tabla {
+    position: relative;
+    overflow:auto;
+
+}
+.sub_menu, .agregar_clientes{
+    position:relative;
+    display:inline-block;
+    /* top:50px; */
+}
+.facilitador, .tabla{
+    /* position:relative; */
+    left:10%;
+}
+label{
+    color:#03A9F4;
+}
+section .cuerpo .agregar_clientes .facilitador .opciones{
+    background:#18FFFF;
+    padding:7px;
+    outline:none;
+    margin: 0;
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+    border-radius:7px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    color:#888;
+    border:none;
+    /* display: inline-block; */
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+    font-size:15px;
+}
+section .cuerpo .agregar_clientes .facilitador .segundo .opciones option:hover{
+    color:#888
+}
+section .cuerpo .agregar_clientes .facilitador .opciones:hover{
+    color:#888;
+    font-size:16px;
+}
+/* section .cuerpo div .opciones:focus{ */
+/*     background:#fff; */
+/* } */
+section .cuerpo .agregar_clientes .facilitador{
+    position:relative;
+    bottom:20px;
+}
+section .cuerpo .facilitador .segundo{
+    padding:10px;
+    background:#fff;
+    /* left:12%; */
+    border-radius:12px;
+}
+.buscar{
+    float:right;
+    padding:8px 10px;
+    border-radius:12px;
+    font-size:15px;
+    outline:none;
+    border: 1px solid #18ffff;
+    width:230px;
+}
+.buscar:focus{
+    /* width:270px; */
+    border:1px solid #03a0f4;
+    -webkit-transition: 0.4s;
+}
+.busco{
+    float:right;
+    margin: 0 10px;
+    background: #00BCD4;
+    text-decoration:none;
+    font-size:18px;
+    color: #fff;
+    border: none;
+    border-radius:12px;
+    padding:8px 10px;
+}
+.busco:hover{
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#18ffff), to(#0f0f09));
+    background-image:         linear-gradient(top, #18ffff, #eee);
+}
+
+.tabla .zebra .registro{
+    font-size:20px;
+}
+#modal{
+    position:absolute;
+    bottom:-50px;
+}

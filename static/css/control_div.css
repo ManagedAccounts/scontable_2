@@ -1,4 +1,4 @@
-.register_proveedor{
+.register_proveedor, .register_cliente{
     position:relative;
     margin-left:80%;
 }

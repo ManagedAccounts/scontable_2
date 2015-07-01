@@ -70,9 +70,10 @@
                 <h2><a href="{% url 'clientes:clientes_l'%}">R. Clientes</a></h2>
                 <h2><a href="{% url 'proveedores:proveedor_c'%}">R. Proveedor</a></h2>
                 <h2><a href="{% url 'productos:productos_c'%}">R. Articulos</a></h2>
-                <h2><a href="{% url 'clientes:clientes_l' %}">R. Clientes</a></h2>
             </div>
             {% block registro_compras %}
+            {% endblock %}
+            {% block agregar_clientes %}
             {% endblock %}
             {% block buscar_clientes %}
             {% endblock %}

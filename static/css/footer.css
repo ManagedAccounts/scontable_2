@@ -9,7 +9,7 @@
 #footer_world div div{
     position:relative;
     display:inline-block;
-    /* padding:10px; */
+    padding:20px;
     bottom:7px;
 }
 #footer_world div div li{
@@ -38,10 +38,10 @@
     top:6px;
 }
 #footer_world div div li .github:hover{
-    -webkit-box-shadow: 4px 4px 4px #4183C4;
-    box-shadow: 4px 4px 0 0 #4183C4;
+    -webkit-box-shadow: 4px 4px 4px #333;
+    box-shadow: 4px 4px 0 0 #333;
     -webkit-transition:0.4s;
-    background:#000;
+    background:#4078C0;
 }
 #footer_world div div li .github:active{
     position:relative;

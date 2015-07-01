@@ -39,3 +39,10 @@
 }
 #name_proveedor:hover{
     border-bottom:3px solid #76FF03;
+}
+
+#name_proveedor:focus{
+    position:relative;
+    background:#18ffff;
+    top:4px;
+}
