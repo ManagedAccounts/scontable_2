@@ -4,11 +4,12 @@ from django.views.generic.list import ListView
 from productos.models import Producto
 from productos.forms import ProductoForm
 
+from accounts.views import LoginRequiredMixin
 # Create your views here.
-class ProductoList(ListView):
+class ProductoList(LoginRequiredMixin, ListView):
     model = Producto
 
-class ProductoCreate(CreateView):
+class ProductoCreate(LoginRequiredMixin, CreateView):
     model = Producto
     form_class = ProductoForm
     def dispatch(self, *args, **kwargs):
