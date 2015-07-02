@@ -1,6 +1,10 @@
-.register_proveedor, .register_cliente{
+.register_proveedor, .register_cliente, .register_articulo{
     position:relative;
     margin-left:80%;
+}
+.register_articulo{
+    position:relative;
+    margin-left:72%;
 }
 input[type="submit"]{
     outline:none;

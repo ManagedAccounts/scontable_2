@@ -23,9 +23,9 @@
                 <li class="active"><a href="/">Home</a></li>                
                 <li class='has-sub '><a href="#">Sistema</a>
                     <ul>
-                        <li class='has-sub '><a href='#'>Product 1</a>
+                        <li class='has-sub '><a href='#'>Articulo</a>
                             <ul>
-                                <li><a href='#'>Sub Item</a></li>
+                                <li><a href='{% url 'productos:productos_c'%}'>Añadir Articulo</a></li>
                                 <li><a href='#'>Sub Item</a></li>
                             </ul>
                         </li>
@@ -71,6 +71,8 @@
                 <h2><a href="{% url 'productos:productos_c'%}">R. Articulos</a></h2>
             </div>
             {% block compras_add %}
+            {% endblock %}
+            {% block producto_add  %}
             {% endblock %}
             {% block registro_compras %}
             {% endblock %}

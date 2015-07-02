@@ -9,7 +9,8 @@ caption{
     background: #18FFFF;
     font-weight: bold;
     /* font-size: 1.4em; */
-    color: #03A9F4;    
+    color: #03A9F4;  
+    font-size:20px;
 }
 
 caption:first-child{

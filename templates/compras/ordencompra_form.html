@@ -12,7 +12,7 @@
             <div class="compra">
                 <div class="compra_cabeza">                
                     <!-- <h2><i>Managed Account</i></h2> -->            
-                    <form action="sistema_base_submit"method="post" accept-charset="utf-8" enctype="multipart/form-data">{% csrf_token %}
+                    <form method="post" accept-charset="utf-8" enctype="multipart/form-data">{% csrf_token %}
                         <fieldset>
                             <legend>Formulario de Compra</legend>
                             <div class="control_lado">
@@ -31,24 +31,8 @@
                                     <label>Código de Compra :</label> 
                                     <input id="id_ccompra" min="0" name="ccompra" type="number" />
                                 </div>
-                                <div class="control-group">
-                                    <label>Proveedor :</label> 
-                                    <select multiple="multiple" id="id_pcompra" name="pcompra">
-                                        <option value="1">Apple</option>
-                                        <option value="2">Microsoft</option>
-                                        <option value="3">Facebook</option>
-                                        <option value="4">Twitter</option>
-                                    </select>
-                                </div>  
-                                <!-- <div class="control-group"> -->
-                                <!--     <label>Articulo :</label> --> 
-                                <!--     <select multiple="multiple" id="id_aproucto" name="aproucto"> -->                                        
-                                <!--     </select> -->
-                                <!-- </div> --> 
-                                <div class="control-group">
-                                    <label>Tipo de Pago :</label>
-                                    <input type="text" name="" value="" placeholder="">                                
-                                </div>   
+                            </div>
+                            <div class="control_lado">                  
                                 <div class="control-group">
                                     <label>Tipo de Pago :</label> 
                                     <select id="id_tpago" name="tpago">
@@ -60,32 +44,17 @@
                                 <div class="control-group">
                                     <label>Fecha :</label>
                                     <input id="id_fecha" name="fecha" type="text" />
-                                </div> 
+                                </div>
+                                <!-- <div class="control-group"> -->
+                                <!--     <label>Moneda :</label> -->
+                                <!--     <select class=""> -->
+                                <!--         <option value="Soles">S/. </option> -->
+                                <!--         <option value="Dólares">$/. </option> -->
+                                <!--         <option value="Euros">€/. </option> -->
+                                <!--         <option value="Yenes">¥/. </option> -->
+                                <!--     </select> -->
+                                <!-- </div> -->
                             </div>
-                            <div class="control_lado">                  
-                                <div class="control-group">
-                                    <label>Descripcion :</label> 
-                                    <textarea cols="40" id="id_descripcion"
-                                        name="descripcion"
-                                        rows="10"></textarea>
-                                </div>  
-                                <div class="control-group">
-                                    <label>Cantidad :</label> 
-                                    <input id="id_cantidad" min="0" name="cantidad" type="number">
-                                </div>  
-                                <div class="control-group">
-                                    <label>Precio Unitario :</label> 
-                                    <input id="id_uprecio" name="uprecio" step="0.01" type="number" />
-                                    <div class="control-group">
-                                        <label>Moneda :</label>
-                                        <select class="">
-                                            <option value="Soles">S/. </option>
-                                            <option value="Dólares">$/. </option>
-                                            <option value="Euros">€/. </option>
-                                            <option value="Yenes">¥/. </option>
-                                        </select>                                
-                            </div>
-                        </div>
                         </fieldset>
                     </form>           
                 </div>
@@ -215,10 +184,9 @@
                         </div>			
                     </div>
                 </div>
-    
-    <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input  type="SUBMIT" value="registrar compra"/>
+                <div>
+                    <input  type="SUBMIT" value="registrar compra"/>
+                </div>
     </form>
 </div>
 {% endblock %}

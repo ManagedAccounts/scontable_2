@@ -8,4 +8,4 @@ class ProductoForm(ModelForm):
         model = Producto
         fields = ['nombre', 'cproducto', 'tproducto',
                   'tunidad', 'pmarca', 'pcompra', 'pventa',
-                  'pimg', 'descripcion', 'cantidad', 'pcompra', 'uprecio']
+                  'pimg', 'descripcion', 'cantidad', 'procompra', 'uprecio']

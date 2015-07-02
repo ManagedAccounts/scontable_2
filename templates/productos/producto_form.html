@@ -1,5 +1,102 @@
-<form method="post" enctype="multipart/form-data">{% csrf_token %}
-    {{ form.as_p }}
-
-    <input type="SUBMIT" id="register_signup" value="Registrar Producto"/>
-</form>
+{% extends 'home.html' %}
+{% load staticfiles %}
+{% block  extracss %}
+    <link rel="stylesheet" href="{% static 'css/producto_add.css' %}">
+    <link rel="stylesheet" href="{% static 'css/control_div.css' %}">
+{% endblock %}
+{% block producto_add  %}
+<div class="producto_add">
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <fieldset>
+            <legend>Formulario de Producto</legend>
+            <div class="control_lado">
+                <div class="control-group">
+                    <label>Nombre :</label>
+                    <input id="id_nombre" maxlength="100" name="nombre" type="text" />
+                </div>
+                <div class="control-group">
+                    <label>Código de Producto :</label> 
+                    <input id="id_cproducto" maxlength="30" name="cproducto" type="text" />
+                </div>
+                <div class="control-group">
+                    <label>Tipo de Producto :</label>  
+                    <select id="id_tproducto" name="tproducto">
+                        <option value="" selected="selected">---------</option>
+                        <option value="01">Mercaderia</option>
+                        <option value="02">Producto Terminado</option>
+                        <option value="03">Materias Primas y Auxiliares</option>
+                        <option value="04">Envases y Envalajes</option>
+                        <option value="05">Suministros Diversos</option>
+                        <option value="06">Inmueble Maquinaria y Equipo</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Tipo de Unidad :</label> 
+                    <select id="id_tunidad" name="tunidad">
+                        <option value="" selected="selected">---------</option>
+                        <option value="01">KILOGRAMOS</option>
+                        <option value="02">LIBRAS</option>
+                        <option value="03">TONELADAS LARGAS</option>
+                        <option value="04">TONELADAS METRICAS</option>
+                        <option value="05">TONELADAS CORTAS</option>
+                        <option value="06">GRAMOS</option>
+                        <option value="07">UNIDADES</option>
+                        <option value="08">LITROS</option>
+                        <option value="09">GALONES</option>
+                        <option value="10">BARRILES</option>
+                        <option value="11">LATAS</option>
+                        <option value="12">CAJAS</option>
+                        <option value="13">MILLARES</option>
+                        <option value="14">METROS CUBICOS</option>
+                        <option value="15">METROS</option>
+                        <option value="99">OTROS</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Marca :</label> 
+                    <input id="id_pmarca" maxlength="50" name="pmarca" type="text" />
+                </div>
+                <div class="control-group">
+                    <label>Precio de Compra :</label>  
+                    <input id="id_pcompra" name="pcompra" step="0.01" type="number" />
+                </div>
+                <div class="control-group">
+                    <label>Precio de Venta :</label> 
+                    <input id="id_pventa" name="pventa" step="0.01" type="number" />
+                </div>
+                <div class="control-group">
+                    <label>Imagen :</label> 
+                    <input id="id_pimg" name="pimg" type="file" />
+                </div>
+            </div>
+            <div class="control_lado">
+                <div class="control-group">
+                    <label>Descripcion :</label>  
+                    <textarea cols="40" id="id_descripcion" name="descripcion" rows="10"></textarea>
+                </div>
+                <div class="control-group">
+                    <label>Cantidad :</label> 
+                    <input id="id_cantidad" min="0" name="cantidad" type="number" />
+                </div>
+                <div class="control-group">
+                    <label>Proveedor :</label> 
+                    {{form.procompra}}
+                    <!-- <select id="id_procompra" name="procompra"> -->
+                    <!--     <option value="" selected="selected">---------</option> -->
+                    <!-- </select> -->
+                </div>
+                <div class="control-group">
+                    <label>Precio Unitario :</label> 
+                    <input id="id_uprecio" name="uprecio" step="0.01" type="number" />
+                </div>
+                <div class="register_articulo">
+                    <input type="SUBMIT"  value="Registrar Producto"/>
+                </div>
+            </div>
+        </fieldset> 
+        <!-- <form method="post">{% csrf_token %} -->
+        <!-- {{ form.as_p }} -->
+        <!-- <input type="SUBMIT" value="Registrar Producto"/> -->
+    <!-- </form> -->
+</div>
+{% endblock %}
