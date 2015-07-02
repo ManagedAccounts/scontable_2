@@ -43,7 +43,7 @@ class Producto(models.Model):
     pimg = models.ImageField(upload_to = 'media' )#imagen de l producto
     cantidad = models.PositiveIntegerField()
     pcompra = models.OneToOneField(Proveedor)
-    uprecio = models.DecimalField(max_digits = 20 decimal_places =2)
+    uprecio = models.DecimalField(max_digits = 20, decimal_places =2)
 
     def __str__(self):
         return self.nombre
