@@ -28,6 +28,7 @@ class LoginView(FormView):
 
 
 class LogoutView(RedirectView):
+    permanent = False
     pattern_name = 'login'
 
     def get(self, request, *args, **kwargs):

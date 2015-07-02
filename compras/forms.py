@@ -5,6 +5,5 @@ from compras.models import Ordencompra
 class OrdencompraForm(ModelForm):
     class Meta:
         model = Ordencompra
-        fields = ['tcomprobante', 'ccompra', 'pcompra',
-                  'aproucto', 'tpago', 'fecha', 'descripcion',
-                  'cantidad', 'uprecio']
+        fields = ['tcomprobante', 'ccompra',
+                  'aproucto', 'tpago', 'fecha',]

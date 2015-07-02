@@ -1,4 +1,5 @@
 from django.db import models
+from proveedores.models import Proveedor
 
 # Create your models here.
 
@@ -40,6 +41,9 @@ class Producto(models.Model):
     pventa = models.DecimalField(max_digits = 5, decimal_places = 2)#precio venta
     descripcion = models.TextField()#descripcion brevve del producto
     pimg = models.ImageField(upload_to = 'media' )#imagen de l producto
+    cantidad = models.PositiveIntegerField()
+    pcompra = models.OneToOneField(Proveedor)
+    uprecio = models.DecimalField(max_digits = 5, decimal_places =2)
 
     def __str__(self):
         return self.nombre

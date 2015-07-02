@@ -20,13 +20,9 @@ class Ordencompra(models.Model):
 
     tcomprobante = models.CharField(max_length = 2, choices = TIPO_COMPROBANTE)
     ccompra = models.PositiveIntegerField()
-    pcompra = models.ManyToManyField(Proveedor)
     aproucto = models.ManyToManyField(Producto)
     tpago = models.CharField(max_length = 1, choices = TIPO_PAGO)
     fecha = models.DateTimeField()
-    descripcion = models.TextField()
-    cantidad = models.PositiveIntegerField()
-    uprecio = models.DecimalField(max_digits = 5, decimal_places =2)
 
     def __str__(self):
         return self.aproucto.nombre
