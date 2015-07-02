@@ -20,8 +20,8 @@ class Ordencompra(models.Model):
 
     tcomprobante = models.CharField(max_length = 2, choices = TIPO_COMPROBANTE)
     ccompra = models.PositiveIntegerField()
-    pcompra = models.ForeignKey(Proveedor)
-    aproucto = models.ForeignKey(Producto)
+    pcompra = models.ManyToManyField(Proveedor)
+    aproucto = models.ManyToManyField(Producto)
     tpago = models.CharField(max_length = 1, choices = TIPO_PAGO)
     fecha = models.DateTimeField()
     descripcion = models.TextField()
