@@ -32,47 +32,58 @@
                                     <input id="id_ccompra" min="0" name="ccompra" type="number" />
                                 </div>
                                 <div class="control-group">
-                                    <label>Proveedor :</label>
-                                    <input type="text" name="" value="" placeholder="">                                
+                                    <label>Proveedor :</label> 
+                                    <select multiple="multiple" id="id_pcompra" name="pcompra">
+                                        <option value="1">Apple</option>
+                                        <option value="2">Microsoft</option>
+                                        <option value="3">Facebook</option>
+                                        <option value="4">Twitter</option>
+                                    </select>
                                 </div>  
-                                <div class="control-group">
-                                    <label>Articulo :</label>
-                                    <select class="tipo_producto">
-                                        <option value="">Mercadería</option>                            
-                                        <option value="">Inmueble, Maquinaria y Equipo</option>
-                                        <option value="">Intangible</option>
-                                    </select> 
-                                </div> 
+                                <!-- <div class="control-group"> -->
+                                <!--     <label>Articulo :</label> --> 
+                                <!--     <select multiple="multiple" id="id_aproucto" name="aproucto"> -->                                        
+                                <!--     </select> -->
+                                <!-- </div> --> 
                                 <div class="control-group">
                                     <label>Tipo de Pago :</label>
                                     <input type="text" name="" value="" placeholder="">                                
                                 </div>   
+                                <div class="control-group">
+                                    <label>Tipo de Pago :</label> 
+                                    <select id="id_tpago" name="tpago">
+                                        <option value="" selected="selected">---------</option>
+                                        <option value="e">Efectivo</option>
+                                        <option value="c">Credito</option>
+                                    </select>
+                                </div>
+                                <div class="control-group">
+                                    <label>Fecha :</label>
+                                    <input id="id_fecha" name="fecha" type="text" />
+                                </div> 
                             </div>
                             <div class="control_lado">                  
                                 <div class="control-group">
-                                    <label>Efectivo/Credito :</label>
-                                    <input type="text" name="" value="" placeholder="">                                
-                                </div>
+                                    <label>Descripcion :</label> 
+                                    <textarea cols="40" id="id_descripcion"
+                                        name="descripcion"
+                                        rows="10"></textarea>
+                                </div>  
                                 <div class="control-group">
-                                    <label>Stock :</label>
-                                    <input type="text" name="" value="" placeholder="">                                
-                                </div> 
+                                    <label>Cantidad :</label> 
+                                    <input id="id_cantidad" min="0" name="cantidad" type="number">
+                                </div>  
                                 <div class="control-group">
-                                    <label>Precio Unitario :</label>
-                                    <input type="text" name="" value="" placeholder="">                                
-                                </div> 
-                            <div class="control-group">
-                                <label>Moneda :</label>
-                                <select class="">
-                                    <option value="Soles">S/. </option>
-                                    <option value="Dólares">$/. </option>
-                                    <option value="Euros">€/. </option>
-                                    <option value="Yenes">¥/. </option>
-                                </select>                                
-                            </div>
-                            <div class="control-group">
-                                <label>Fecha :</label>
-                                <input type="datetime" name="" value="" placeholder="">                        
+                                    <label>Precio Unitario :</label> 
+                                    <input id="id_uprecio" name="uprecio" step="0.01" type="number" />
+                                    <div class="control-group">
+                                        <label>Moneda :</label>
+                                        <select class="">
+                                            <option value="Soles">S/. </option>
+                                            <option value="Dólares">$/. </option>
+                                            <option value="Euros">€/. </option>
+                                            <option value="Yenes">¥/. </option>
+                                        </select>                                
                             </div>
                         </div>
                         </fieldset>
@@ -88,12 +99,15 @@
                                 <th>Nro</th>
                                 <th>Nombre</th>
                                 <th>Código de Producto</th>
+                                <th>Tipo de Producto</th>
                                 <th>Unidad de Medida</th>
-                                <th>Tipo de Documento</th>
+                                <th>Marca</th>
+                                <th>Proveedor</th>
                                 <th>Precio de Compra</th>
-                                <th>Marca de Producto</th>
                                 <th>Precio de Venta</th>
                                 <th>Descripcion</th>
+                                <th>Cantidad</th>
+                                <th>Precio Unitario</th>
                                 <th>Imagen</th>
                                 <th>Editar</th>
                                 <th>Eliminar</th>
@@ -113,9 +127,15 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                         </tfoot>
                         <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
