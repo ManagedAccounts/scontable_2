@@ -42,7 +42,7 @@ class Producto(models.Model):
     descripcion = models.TextField()#descripcion brevve del producto
     pimg = models.ImageField(upload_to = 'media' )#imagen de l producto
     cantidad = models.PositiveIntegerField()
-    procompra = models.OneToOneField(Proveedor)
+    procompra = models.ForeignKey(Proveedor)
     uprecio = models.DecimalField(max_digits = 20, decimal_places =2)
 
     def __str__(self):
