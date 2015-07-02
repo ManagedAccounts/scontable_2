@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/sistema_base.css' %}">
     <link rel="stylesheet" href="{% static 'css/menu.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
     <!-- <link rel="stylesheet" type="text/css" href="css/compra.css"> -->
     {% block extracss %}
     {% endblock %}
@@ -70,6 +70,8 @@
                 <h2><a href="{% url 'proveedores:proveedor_c'%}">R. Proveedor</a></h2>
                 <h2><a href="{% url 'productos:productos_c'%}">R. Articulos</a></h2>
             </div>
+            {% block compras_add %}
+            {% endblock %}
             {% block registro_compras %}
             {% endblock %}
             {% block agregar_clientes %}
