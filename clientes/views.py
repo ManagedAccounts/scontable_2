@@ -15,7 +15,7 @@ from accounts.views import LoginRequiredMixin
 class ClienteList(LoginRequiredMixin, ListView):
     model = Cliente
 
-class ClienteCreate(CreateView):
+class ClienteCreate(LoginRequiredMixin, CreateView):
     model = Cliente
     form_class = ClienteForm
     def dispatch(self, *args, **kwargs):
@@ -26,7 +26,7 @@ class ClienteCreate(CreateView):
         self.object.save()
         return redirect('clientes:clientes_l')
 
-class ClienteView(View):
+class ClienteView(LoginRequiredMixin, View):
     def get(self, request):
         if 'buscar' in request.GET and request.GET['buscar']:
             buscar = request.GET['buscar']
@@ -38,7 +38,7 @@ class ClienteView(View):
             #return render(request, 'proveedores/proveedor_list.html', {'error':True})
         else:
             return HttpResponse('Lo sentimos mucho no se encontro el Cliente.')
-class ClienteUpdate(UpdateView):
+class ClienteUpdate(LoginRequiredMixin, UpdateView):
     model = Cliente
     form_class = ClienteForm
     success_url = reverse_lazy("clientes:clientes_l")
