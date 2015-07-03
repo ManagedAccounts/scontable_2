@@ -5,5 +5,16 @@
 #add_articulos{
     position:relative;
     /* display:inline-block; */
-    top:30px;
+    top:50px;
+    overflow:auto;
+    width:994px;
+}
+.guardar_compra{
+    position:relative;
+    padding-top:70px;
+    margin-left:79%;
+}
+#button{
+    position:relative;
+    margin-right:7%;
 }

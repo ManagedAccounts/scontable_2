@@ -65,8 +65,11 @@
                     <a href="{% url 'compras:compras_l' %}"><i>Compras</i></a><br>
                     <a href="#"><i>Ventas</i></a><br>   
                     <a href="#"><i>Libro Diario</i></a>
-                </details>
-                <h2><a href="{% url 'clientes:clientes_l'%}">R. Clientes</a></h2>
+                </details>                 <details>
+                    <summary><b>Clientes</b></summary>
+                    <a href="{% url 'clientes:clientes_l'%}"><i>R. Clientes</i></a><br>
+                    <a href="{% url 'clientes:clientes_c'%}"><i>A. Clientes</i></a><br>   
+                </details> 
                 <h2><a href="{% url 'proveedores:proveedor_c'%}">R. Proveedor</a></h2>
                 <h2><a href="{% url 'productos:productos_c'%}">R. Articulos</a></h2>
             </div>

@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="control-group">
                                     <label>Fecha :</label>
-                                    <input id="id_fecha" name="fecha" type="text" />
+                                    <input id="id_fecha" name="fecha" type="date" />
                                 </div>
                                 <!-- <div class="control-group"> -->
                                 <!--     <label>Moneda :</label> -->
@@ -58,7 +58,8 @@
                         </fieldset>
                     </form>           
                 </div>
-                <div id="button"><a class="button_modal" href="#modal">Añadir</a></div>
+                <div id="button">
+                    <a class="button_modal" href="#modal">Añadir</a></div>
                 <!-- <div><a  class="add_article" href="#modal">Añadir Articulos</a></div> -->
                 <div id="add_articulos"  class="tabla" >
                     <table  class="zebra" >
@@ -184,9 +185,8 @@
                         </div>			
                     </div>
                 </div>
-                <div>
-                    <input  type="SUBMIT" value="registrar compra"/>
+                <div class="guardar_compra">
+                    <input  type="SUBMIT" value="Registrar Compra"/>
                 </div>
-    </form>
-</div>
+        </div>
 {% endblock %}
