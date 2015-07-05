@@ -1,13 +1,23 @@
-{{query}}
-
-{%if not clientes %}
-    <p>Ningun cliente coincide con {{ query }}
+{% extends 'home.html' %}
+{% load staticfiles %}
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'css/result_clientes.css' %}">
+{% endblock %}
+{% block result_clientes %}
+<div class="result_clientes">
+    <label class="nombre-consulta">{{query}}</label><br>
+    {%if not clientes %}
+    <h2>Ningun cliente coincide con <label>{{ query }}</label></h2>
 {% endif %}
 
 {%if clientes%}
-    <p>Se encontraron: </p>
-{%for cliente in clientes%}
-{{cliente}}
-<br/>
-{%endfor%}
+<label class="encontrado">Se encontraron: </label><br>
+    {%for cliente in clientes%}
+    <ol>
+        <li><label class="nombre-cliente">{{cliente}}</label></li>
+    </ol>
+    {%endfor%}
 {%endif%}
+
+</div>
+{% endblock %}

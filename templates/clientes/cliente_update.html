@@ -1,4 +1,58 @@
-<form method="POST">{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Guardar Cambios"/></form>
+{% extends 'home.html' %}
+{% load staticfiles %}
+{% block extracss %}     
+    <link rel="stylesheet" href="{% static 'css/tabla.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/control_div.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/cliente_update.css'%}">
+{% endblock %}
+{% block agregar_clientes %}
+<div class="update_cliente">
+    <form method="POST">{% csrf_token %}
+        <fieldset>
+            <legend>Editar Cliente</legend>
+            <div class="control_lado">
+                <div class="control-group">
+                    <label>Razón Social</label>
+                    <input id="id_rsocial" maxlength="100" name="rsocial" type="text" value="Add" />
+                </div>
+                <div class="control-group">
+                    <label>Tipo de Cliente</label>
+                    <select id="id_tcliente" name="tcliente">
+                        <option value="">---------</option>
+                        <option value="0" selected="selected">Juridica</option>
+                        <option value="1">Natural</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>N° Documento</label>
+                    <input id="id_rod" min="0" name="rod" type="number" value="6357216537" />
+                </div>
+            </div>
+            <div class="control_lado">
+                <div class="control-group">
+                    <label>Dirección</label>
+                    <input id="id_direccion" maxlength="100" name="direccion" type="text" value="Av Collpa" />
+                </div>
+                <div class="control-group">
+                    <label>Teléfono/Celular</label>
+                    <input id="id_toc" min="0" name="toc" type="number" value="834658273" />
+                </div>
+                <div class="control-group">
+                    <label>Estado</label>
+                    <select id="id_estado" name="estado">
+                        <option value="">---------</option>
+                        <option value="0" selected="selected">Activo</option>
+                        <option value="1">Inactivo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="register_cliente">
+                <input type="submit" value="Guardar Cambios"/>
+            </div>
+        </fieldset>
+    </form>
+<!-- {{ form.as_p }} -->
+</div>
 </form>
+{% endblock %}

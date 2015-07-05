@@ -2,6 +2,10 @@
     position:relative;
     display:inline-block;
 }
+.sub_menu{
+    position:absolute;
+    float:left;
+}
 #add_articulos{
     position:relative;
     /* display:inline-block; */

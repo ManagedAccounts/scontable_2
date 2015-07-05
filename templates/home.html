@@ -26,7 +26,7 @@
                         <li class='has-sub '><a href='#'>Articulo</a>
                             <ul>
                                 <li><a href='{% url 'productos:productos_c'%}'>Añadir Articulo</a></li>
-                                <li><a href='#'>Sub Item</a></li>
+                                <li><a href='{% url 'productos:productos_l'%}'>Listar Articulos</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Caja</a></li>
@@ -77,11 +77,15 @@
             {% endblock %}
             {% block producto_add  %}
             {% endblock %}
+            {% block productos_list %}
+            {% endblock %}
             {% block registro_compras %}
             {% endblock %}
             {% block agregar_clientes %}
             {% endblock %}
             {% block buscar_clientes %}
+            {% block result_clientes %}
+            {% endblock %}
             {% endblock %}
             {% block registrar_proveedor %}
             {% endblock %}

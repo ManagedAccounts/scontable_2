@@ -1,0 +1,29 @@
+.sub_menu, .result_clientes{
+    position:relative;
+    display:inline-block;
+}
+
+.result_clientes{
+    padding:16px;
+    border-radius:12px;
+    background:#69F0AE;
+    bottom:120px;
+    margin-left:20%;
+}
+.nombre-consulta{
+    color:#8BC34a;
+
+}
+ol li{
+    color:#00BFA5;
+}
+label{
+    font-size:20px;
+    color:#1B5E20;    
+}
+.encontrado{
+    -webkit-box-shadow:2px 2px 2px 0 #388E3C;
+    /* box-shadow: 2px 2px 0 0 #388e3c; */
+    color:#33691E;
+
+}

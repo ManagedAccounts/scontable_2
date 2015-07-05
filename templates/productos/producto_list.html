@@ -1,4 +1,32 @@
-{% for producto in producto_list%}
-{{ producto }}
-<br/>
-{% endfor %}
+{% extends 'home.html' %}
+{% load staticfiles %}
+{% block extracss %}     
+    <link rel="stylesheet" href="{% static 'css/tabla.css' %}">
+    <link rel="stylesheet" href="{% static 'css/productos_list.css' %}">
+{% endblock %}
+{% block productos_list %}
+<div class="productos_list">
+    <table class="zebra">
+        <caption>Productos Registrados</caption>
+        <thead>
+            <tr>
+                <th>Nombre de Articulo</th>
+                <th>Código de Producto</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td>&nbsp;</td>
+                <td></td>
+            </tr>
+        </tfoot>
+        {% for producto in producto_list%}
+        <tr>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.cproducto }}</td>
+        </tr>
+        <!-- {{ producto }} -->
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

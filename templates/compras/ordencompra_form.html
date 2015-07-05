@@ -31,6 +31,10 @@
                                     <label>Código de Compra :</label> 
                                     <input id="id_ccompra" min="0" name="ccompra" type="number" />
                                 </div>
+                                <div class="control-group">
+                                    <label>Producto</label>
+                                    {{form.aproucto}}
+                                </div>
                             </div>
                             <div class="control_lado">                  
                                 <div class="control-group">
@@ -44,6 +48,9 @@
                                 <div class="control-group">
                                     <label>Fecha :</label>
                                     <input id="id_fecha" name="fecha" type="date" />
+                                </div>
+                                <div class="guardar_compra">
+                                    <input  type="SUBMIT" value="Registrar Compra"/>
                                 </div>
                                 <!-- <div class="control-group"> -->
                                 <!--     <label>Moneda :</label> -->
@@ -184,9 +191,6 @@
                             </div> 
                         </div>			
                     </div>
-                </div>
-                <div class="guardar_compra">
-                    <input  type="SUBMIT" value="Registrar Compra"/>
                 </div>
         </div>
 {% endblock %}

@@ -13,8 +13,8 @@ caption{
     font-size:20px;
 }
 
-caption:first-child{
-    border-radius: 12px;
+caption{
+    border-radius: 12px 12px 0 0;
 }
 section .cuerpo{
     position: relative;

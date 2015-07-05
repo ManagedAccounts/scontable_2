@@ -1,0 +1,14 @@
+.sub_menu, .update_cliente{
+    position:relative;
+    display:inline-block;
+}
+.update_cliente{
+    background:#69F0AE;
+    border-radius:12px;
+    padding:12px;
+    margin-left:40px;
+}
+.update_cliente form{
+    background:#B9F6CA;
+    border-radius:8px;
+}
